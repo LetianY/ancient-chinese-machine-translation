@@ -7,7 +7,6 @@ import time
 import numpy as np
 import torch
 import torch.optim as optim
-# from tensorboard import SummaryWriter
 from torch.utils.tensorboard import SummaryWriter
 from terminaltables import AsciiTable
 
@@ -20,7 +19,7 @@ from data_load import (
     load_test_data,
     load_train_data,
 )
-from hyperparams import Hyperparams as hp
+from hyperparameters import Hyperparams as hp
 from utils import get_logger
 
 # device

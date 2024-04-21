@@ -5,8 +5,11 @@ class Hyperparams:
     source_data =  "data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt"
     target_data = "data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt"
 
-    source_tokenized_data = "tokenized_data/cn.txt"
-    target_tokenized_data = "tokenized_data/en.txt"
+    # splited data file
+    source_train = "data_splited/cn_train.txt"
+    target_train = "data_splited/en_train.txt"
+    source_test = "data_splited/cn_test.txt"
+    target_test = "data_splited/en_test.txt"
 
     # # training
     # batch_size = 48  # alias = N

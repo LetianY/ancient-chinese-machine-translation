@@ -1,4 +1,4 @@
-from hyperparams import Hyperparams as hp
+from hyperparameters import Hyperparams as hp
 
 import numpy as np
 import codecs
@@ -11,7 +11,7 @@ def load_vocab(language):
     vocab = [
         line.split()[0]
         for line in codecs.open(
-            "preprocessed/{}.txt.vocab.tsv".format(language), "r", "utf-8"
+            "data_vocab/{}.txt.vocab.tsv".format(language), "r", "utf-8"
         )
         .read()
         .splitlines()

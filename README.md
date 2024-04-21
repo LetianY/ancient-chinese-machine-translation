@@ -8,7 +8,7 @@ Python3.6+ needed.
 ```
 regex==2018.1.10
 terminaltables==3.1.0
-torch==1.3.0
+torch==1.13.0
 numpy==1.14.0
 tensorboardX==1.9
 ```

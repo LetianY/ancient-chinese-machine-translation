@@ -4,67 +4,98 @@ import codecs
 import os
 import regex
 from collections import Counter
+import hanlp
+from tqdm import tqdm
 
+def tokenize(file_path, language):
+    """
+    Tokenize the input text file.
 
-def split_data(fpath, language, test_ratio=0.2):
+    Args:
+    file_path (String): The path to the input text file.
+    lang (String): Language of the text file. "cn" for Chinese, "en" for English.
+    """
+    # Create a directory to save the tokenized data
+    if os.path.exists("data_tokenized") is False:
+        os.mkdir("data_tokenized")
+    
+    # Tokenize the input text file
+    with codecs.open("data_tokenized/{}.txt".format(language), "w", "utf-8") as fout:
+        if language == "cn":
+            cn_tokenizer = hanlp.load(hanlp.pretrained.tok.FINE_ELECTRA_SMALL_ZH)
+            with open(file_path, "r") as f:
+                for line in tqdm(f.readlines(), desc="Tokenizing_cn"):
+                    fout.write(" ".join(cn_tokenizer(line.strip())) + "\n")
+        else:
+            with open(file_path, "r") as f:
+                for line in tqdm(f.readlines(), desc="Tokenizing_en"):
+                    fout.write(" ".join(line.strip().split()) + "\n")
+
+def split_data(fpath, source_lang='cn', target_lang='en', test_ratio=0.2):
     """
     Split the dataset into train set and test set.
 
     Args:
-    fpath: A string. The path to the input text file.
-    test_ratio: A float. The proportion of the dataset to include in the test split.
-    language: "sorce" or "target"
+    fpath (String): The path to the tokenized data.
+    source_lang (String): Language of the source data. "cn" for Chinese, "en" for English.
+    target_lang (String): Language of the target data. "cn" for Chinese, "en" for English.
+    test_ratio (float): The ratio of the test set.
 
     Returns:
-    train: List of training data examples.
-    test: List of test data examples.
+    source_train_data (List): List of training sentences in the source dataset.
+    source_test_data (List): List of testing sentences in the source dataset.
+    target_train_data (List): List of training sentences in the target dataset.
+    target_test_data (List): List of testing sentences in the target dataset.
     """
-    assert language in ["source", "target"]
+    # Read the tokenized source and target data
+    with codecs.open(fpath + "/{}.txt".format(source_lang), "r", "utf-8") as f:
+        source_data = f.readlines()
+    with codecs.open(fpath + "/{}.txt".format(target_lang), "r", "utf-8") as f:
+        target_data = f.readlines()
+    
+    # Generate random indices for splitting the dataset
+    indices = list(range(len(source_data)))
+    random.shuffle(indices)
+    test_size = int(len(source_data) * test_ratio)
+    test_indices = indices[:test_size]
+    train_indices = indices[test_size:]
 
-    with open(fpath, 'r') as file:
-        lines = [line.strip() for line in file.readlines()]
+    # Split the dataset into train set and test set
+    source_train_data = [source_data[i] for i in train_indices]
+    source_test_data = [source_data[i] for i in test_indices]
+    target_train_data = [target_data[i] for i in train_indices]
+    target_test_data = [target_data[i] for i in test_indices]
 
-    random.shuffle(lines)
-    split_idx = int(len(lines) * (1 - test_ratio))
-    train_data = lines[:split_idx]
-    test_data = lines[split_idx:]
+    # Save the train set and test set
+    with codecs.open(hp.source_train, "w", "utf-8") as f:
+        f.write("".join(source_train_data))
+    with codecs.open(hp.source_test, "w", "utf-8") as f:
+        f.write("".join(source_test_data))
+    with codecs.open(hp.target_train, "w", "utf-8") as f:
+        f.write("".join(target_train_data))
+    with codecs.open(hp.target_test, "w", "utf-8") as f:
+        f.write("".join(target_test_data))
 
-    output_dir = "split_data"
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-
-    train_file = f"{language}_train"
-    train_path = os.path.join(output_dir, train_file)
-    with open(train_path, 'w', encoding='utf-8') as f:
-        for line in train_data:
-            f.write(line + '\n')
-
-    test_file = f"{language}_test"
-    test_path = os.path.join(output_dir, test_file)
-    with open(test_path, 'w', encoding='utf-8') as f:
-        for line in test_data:
-            f.write(line + '\n')
-
-    return train_data, test_data
-
+    return source_train_data, source_test_data, target_train_data, target_test_data
 
 def make_vocab(dataset, fname):
-    """Constructs vocabulary.
+    """Construct vocabulary.
     
     Args:
-      fpath: A string. Input file path.
-      fname: A string. Output file name.
+        dataset (List): List of sentences.
+        fname (String): Name of the file to save the vocabulary.
     
-    Writes vocabulary line by line to `preprocessed_data/fname`
+    Writes vocabulary line by line to `data_vocab/fname`
     """
     text = " ".join(dataset)
     text = regex.sub("[^\s\p{L}']", "", text)
     words = text.split()
     word2cnt = Counter(words)
 
-    if not os.path.exists("preprocessed_data"):
-        os.mkdir("preprocessed_data")
-    with codecs.open("preprocessed_data/{}".format(fname), "w", "utf-8") as fout:
+    if not os.path.exists("data_vocab"):
+        os.mkdir("data_vocab")
+
+    with codecs.open("data_vocab/{}".format(fname), "w", "utf-8") as fout:
         fout.write(
             "{}\t1000000000\n{}\t1000000000\n{}\t1000000000\n{}\t1000000000\n".format(
                 "<PAD>", "<UNK>", "<S>", "</S>"
@@ -75,8 +106,17 @@ def make_vocab(dataset, fname):
 
 
 if __name__ == "__main__":
-    soure_train, soure_test = split_data(hp.source_tokenized_data, "source", test_ratio=0.2)
-    target_train, target_test = split_data(hp.target_tokenized_data, "target", test_ratio=0.2)
-    make_vocab(soure_train, "chinese.txt.vocab.tsv")
-    make_vocab(target_train, "english.txt.vocab.tsv")
+    # Tokenize the source and target data
+    print("Tokenizing the source and target data...")
+    tokenize(hp.source_data, language="cn")
+    tokenize(hp.target_data, language="en")
+
+    # Split the dataset into train set and test set
+    print("Splitting the dataset into train set and test set...")
+    source_train, source_test, target_train, target_test = split_data('./data_tokenized', source_lang='cn', target_lang='en', test_ratio=0.2)
+    
+    # Construct vocabulary
+    print("Constructing vocabulary...")
+    make_vocab(source_train + source_test, "chinese.txt.vocab.tsv")
+    make_vocab(target_train + target_test, "english.txt.vocab.tsv")
     print("Done")
