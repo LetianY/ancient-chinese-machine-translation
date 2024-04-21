@@ -1,15 +1,24 @@
 # ancient-chinese-machine-translation
 Project repo for course csci2470.
 
-<!-- ## Requirement -->
+## Installation
+Python3.6+ needed. 
 
-## Data
-The dataset we use can be found in [dataset](https://drive.google.com/drive/u/1/folders/10gjJviVFFPJ4wDy4P7q6zn00sb81vQDk)
+### Required packages:
+```
+regex==2018.1.10
+terminaltables==3.1.0
+torch==1.3.0
+numpy==1.14.0
+tensorboardX==1.9
+```
+Easily, you can install all requirement with:
 
-<!-- ## Preprocess
+```
+pip3 install -r requirements.txt
+```
 
-## Model
-
-## Train & Test
-
-## Result -->
+Also, you may need to use a useful tokenization tool [HanLP](https://github.com/hankcs/HanLP/tree/doc-zh) to tokenize the chinese words:
+```
+pip install hanlp
+```
