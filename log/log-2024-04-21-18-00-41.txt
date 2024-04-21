@@ -1,0 +1,36 @@
+2024-04-21 18:00:41,442:INFO: 
++------------------+---------------------+
+| Parameters       | Value               |
++------------------+---------------------+
+| source_train     | corpora/cn.txt      |
+| target_train     | corpora/en.txt      |
+| source_test      | corpora/cn.test.txt |
+| target_test      | corpora/en.test.txt |
+| batch_size       | 48                  |
+| batch_size_valid | 32                  |
+| lr               | 0.0001              |
+| logdir           | logdir              |
+| model_dir        | ./checkpoints/      |
+| maxlen           | 50                  |
+| min_cnt          | 0                   |
+| hidden_units     | 512                 |
+| num_blocks       | 12                  |
+| num_epochs       | 50                  |
+| num_heads        | 8                   |
+| dropout_rate     | 0.4                 |
+| sinusoid         | False               |
+| eval_epoch       | 1                   |
+| eval_script      | scripts/validate.sh |
+| check_frequency  | 10                  |
++------------------+---------------------+
+2024-04-21 18:00:47,637:INFO: Epoch: 1 batch: 10/104(9.62%), loss: 8.2522, acc: 0.05742
+2024-04-21 18:00:50,287:INFO: Epoch: 1 batch: 20/104(19.23%), loss: 7.8991, acc: 0.06074
+2024-04-21 18:00:52,937:INFO: Epoch: 1 batch: 30/104(28.85%), loss: 7.65516, acc: 0.05507
+2024-04-21 18:00:55,588:INFO: Epoch: 1 batch: 40/104(38.46%), loss: 7.40072, acc: 0.04849
+2024-04-21 18:00:58,239:INFO: Epoch: 1 batch: 50/104(48.08%), loss: 7.24394, acc: 0.05921
+2024-04-21 18:01:00,893:INFO: Epoch: 1 batch: 60/104(57.69%), loss: 7.28346, acc: 0.04304
+2024-04-21 18:01:03,545:INFO: Epoch: 1 batch: 70/104(67.31%), loss: 7.24735, acc: 0.04538
+2024-04-21 18:01:06,200:INFO: Epoch: 1 batch: 80/104(76.92%), loss: 7.11606, acc: 0.05802
+2024-04-21 18:01:08,853:INFO: Epoch: 1 batch: 90/104(86.54%), loss: 7.10735, acc: 0.06667
+2024-04-21 18:01:11,513:INFO: Epoch: 1 batch: 100/104(96.15%), loss: 7.16114, acc: 0.06838
+2024-04-21 18:01:12,505:INFO: Epoch: 1 batch: 104/104(100.00%), loss: 7.08859, acc: 0.07432
