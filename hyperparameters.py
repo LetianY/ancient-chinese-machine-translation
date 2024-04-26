@@ -1,15 +1,27 @@
 class Hyperparams:
-    """Hyperparameters"""
+    """
+    Hyperparameters
+    data files:
+        m_e for english translation task (Pre-qin + ZiZhiTongJian)
+        c_m for mandarin translation task (24 History)
+    """
 
     # data file
-    source_data =  "data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt"
-    target_data = "data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt"
+    source_data_m_e =  "data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt"
+    target_data_m_e = "data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt"
+    source_data_c_m = "data/train_24-histories_c_utf8.txt"
+    target_data_c_m = "data/train_24_histories_m_utf8.txt"
 
-    # splited data file
-    source_train = "data_splited/cn_train.txt"
-    target_train = "data_splited/en_train.txt"
-    source_test = "data_splited/cn_test.txt"
-    target_test = "data_splited/en_test.txt"
+    # splitted data file
+    source_train_m_e = "data_splited/pre_qin_train_m.txt"
+    target_train_m_e = "data_splited/pre_qin_train_e.txt"
+    source_test_m_e = "data_splited/pre_qin_test_m.txt"
+    target_test_m_e = "data_splited/pre_qin_test_e.txt"
+
+    source_train_c_m = "data_splited/24_history_train_c.txt"
+    target_train_c_m = "data_splited/24_history_train_m.txt"
+    source_test_c_m = "data_splited/24_history_test_c.txt"
+    target_test_c_m = "data_splited/24_history_test_m.txt"
 
     # # training
     # batch_size = 48  # alias = N
