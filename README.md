@@ -22,6 +22,3 @@ Also, you may need to use a useful tokenization tool [HanLP](https://github.com/
 ```
 pip install hanlp
 ```
-
-
-test test
