@@ -7,7 +7,7 @@ import random
 
 
 def load_vocab(language):
-    assert language in ["cn", "en"]
+    assert language in ["24_history_c", "24_history_m"]
     vocab = [
         line.split()[0]
         for line in codecs.open(
@@ -23,12 +23,12 @@ def load_vocab(language):
 
 
 def load_cn_vocab():
-    word2idx, idx2word = load_vocab("cn")
+    word2idx, idx2word = load_vocab("24_history_c")
     return word2idx, idx2word
 
 
 def load_en_vocab():
-    word2idx, idx2word = load_vocab("en")
+    word2idx, idx2word = load_vocab("24_history_m")
     return word2idx, idx2word
 
 
@@ -64,11 +64,13 @@ def create_data(source_sents, target_sents):
 
 
 def load_data(data_type):
-    if data_type == "train":
-        source, target = hp.source_train, hp.target_train
-    elif data_type == "test":
-        source, target = hp.source_test, hp.target_test
-    assert data_type in ["train", "test"]
+    # if data_type == "train":
+    #     source, target = hp.source_train_c_m, hp.target_train_c_m
+    # elif data_type == "test":
+    #     source, target = hp.source_test_c_m, hp.target_test_c_m
+    # assert data_type in ["train", "test"]
+    source = hp.source_data_c_m
+    target = hp.target_data_c_m
     cn_sents = [
         regex.sub("[^\s\p{L}']", "", line)
         for line in codecs.open(source, "r", "utf-8").read().split("\n")
@@ -85,8 +87,8 @@ def load_data(data_type):
 
 
 def load_train_data():
-    X, Y, _, _ = load_data("train")
-    return X, Y
+    X, Y, Sources, Targets = load_data("train")
+    return X, Y, Sources, Targets
 
 
 def load_test_data():

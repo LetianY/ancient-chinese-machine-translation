@@ -1,0 +1,42 @@
+2024-05-02 23:54:04,162:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 48                                          |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 50                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 10                                          |
++------------------+---------------------------------------------+
+2024-05-02 23:54:11,370:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-02 23:54:11,452:DEBUG: https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-05-02 23:54:11,528:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-02 23:54:11,558:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/config.json HTTP/1.1" 200 0
+2024-05-02 23:54:11,560:DEBUG: Starting new HTTPS connection (1): huggingface.co:443
+2024-05-02 23:54:11,624:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/model.safetensors HTTP/1.1" 404 0
+2024-05-02 23:54:12,262:DEBUG: https://huggingface.co:443 "HEAD /uer/gpt2-chinese-ancient/resolve/main/generation_config.json HTTP/1.1" 404 0

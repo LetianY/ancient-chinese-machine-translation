@@ -1,0 +1,51 @@
+2024-04-30 17:47:36,699:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 48                                          |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 50                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 10                                          |
++------------------+---------------------------------------------+
+2024-04-30 17:48:40,800:INFO: Epoch: 1 batch: 10/4792(0.21%), loss: 12.137, acc: 0.05304
+2024-04-30 17:49:35,905:INFO: Epoch: 1 batch: 20/4792(0.42%), loss: 11.9356, acc: 0.05411
+2024-04-30 17:50:29,717:INFO: Epoch: 1 batch: 30/4792(0.63%), loss: 11.3418, acc: 0.04954
+2024-04-30 17:51:23,934:INFO: Epoch: 1 batch: 40/4792(0.83%), loss: 10.4324, acc: 0.06443
+2024-04-30 17:52:19,190:INFO: Epoch: 1 batch: 50/4792(1.04%), loss: 9.76873, acc: 0.05978
+2024-04-30 17:53:16,524:INFO: Epoch: 1 batch: 60/4792(1.25%), loss: 9.1507, acc: 0.06383
+2024-04-30 17:54:10,949:INFO: Epoch: 1 batch: 70/4792(1.46%), loss: 8.77809, acc: 0.05505
+2024-04-30 17:55:05,669:INFO: Epoch: 1 batch: 80/4792(1.67%), loss: 8.42897, acc: 0.06478
+2024-04-30 17:56:01,465:INFO: Epoch: 1 batch: 90/4792(1.88%), loss: 8.61391, acc: 0.07249
+2024-04-30 17:56:57,069:INFO: Epoch: 1 batch: 100/4792(2.09%), loss: 8.48962, acc: 0.06274
+2024-04-30 17:57:51,303:INFO: Epoch: 1 batch: 110/4792(2.30%), loss: 8.51549, acc: 0.05922
+2024-04-30 17:58:47,234:INFO: Epoch: 1 batch: 120/4792(2.50%), loss: 8.42925, acc: 0.06117
+2024-04-30 17:59:42,533:INFO: Epoch: 1 batch: 130/4792(2.71%), loss: 8.37517, acc: 0.06596
+2024-04-30 18:16:19,939:INFO: Epoch: 1 batch: 140/4792(2.92%), loss: 8.38574, acc: 0.06948
+2024-04-30 18:17:18,363:INFO: Epoch: 1 batch: 150/4792(3.13%), loss: 8.24126, acc: 0.06365
+2024-04-30 18:18:15,088:INFO: Epoch: 1 batch: 160/4792(3.34%), loss: 8.23823, acc: 0.07624

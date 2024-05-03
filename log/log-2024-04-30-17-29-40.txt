@@ -1,0 +1,60 @@
+2024-04-30 17:29:40,601:INFO: 
++------------------+---------------------------------------------+
+| Parameters       | Value                                       |
++------------------+---------------------------------------------+
+| source_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_m_utf8.txt |
+| target_data_m_e  | data/train_Pre-Qin+ZiZhiTongJian_e_utf8.txt |
+| source_data_c_m  | data/train_24-histories_c_utf8.txt          |
+| target_data_c_m  | data/train_24_histories_m_utf8.txt          |
+| source_train_m_e | data_splited/pre_qin_train_m.txt            |
+| target_train_m_e | data_splited/pre_qin_train_e.txt            |
+| source_test_m_e  | data_splited/pre_qin_test_m.txt             |
+| target_test_m_e  | data_splited/pre_qin_test_e.txt             |
+| source_train_c_m | data_splited/24_history_train_c.txt         |
+| target_train_c_m | data_splited/24_history_train_m.txt         |
+| source_test_c_m  | data_splited/24_history_test_c.txt          |
+| target_test_c_m  | data_splited/24_history_test_m.txt          |
+| embed_size       | 256                                         |
+| hidden_size      | 512                                         |
+| batch_size       | 48                                          |
+| batch_size_valid | 32                                          |
+| lr               | 0.0001                                      |
+| logdir           | logdir                                      |
+| model_dir        | ./models/                                   |
+| maxlen           | 50                                          |
+| min_cnt          | 0                                           |
+| hidden_units     | 512                                         |
+| num_blocks       | 12                                          |
+| num_epochs       | 50                                          |
+| num_heads        | 8                                           |
+| dropout_rate     | 0.4                                         |
+| sinusoid         | False                                       |
+| eval_epoch       | 1                                           |
+| eval_script      | scripts/validate.sh                         |
+| check_frequency  | 10                                          |
++------------------+---------------------------------------------+
+2024-04-30 17:30:43,441:INFO: Epoch: 1 batch: 10/83(12.05%), loss: 11.1459, acc: 0.9353
+2024-04-30 17:31:41,081:INFO: Epoch: 1 batch: 20/83(24.10%), loss: 9.01635, acc: 0.9483
+2024-04-30 17:32:40,883:INFO: Epoch: 1 batch: 30/83(36.14%), loss: 5.52934, acc: 0.939
+2024-04-30 17:33:37,240:INFO: Epoch: 1 batch: 40/83(48.19%), loss: 2.53989, acc: 0.9398
+2024-04-30 17:34:38,866:INFO: Epoch: 1 batch: 50/83(60.24%), loss: 0.954662, acc: 0.9384
+2024-04-30 17:35:47,116:INFO: Epoch: 1 batch: 60/83(72.29%), loss: 0.633756, acc: 0.9422
+2024-04-30 17:36:46,649:INFO: Epoch: 1 batch: 70/83(84.34%), loss: 0.589184, acc: 0.9398
+2024-04-30 17:37:57,090:INFO: Epoch: 1 batch: 80/83(96.39%), loss: 0.565394, acc: 0.9361
+2024-04-30 17:38:11,998:INFO: Epoch: 1 batch: 83/83(100.00%), loss: 0.492873, acc: 0.9428
+2024-04-30 17:38:27,310:INFO: ===========sampling START===========
+2024-04-30 17:38:27,312:INFO: 
++---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Key     | Value                                                                                                                                                                                                                                                                                                       |
++---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Source  | 曹操 要 把 <UNK> <UNK> <UNK> 为 妻 <UNK> <UNK> <UNK> 一 只 眼 瞎 <UNK> 了 曹操                                                                                                                                                                                                                              |
+| Target  | Cao Cao had intended to give his daughter in marriage to Ding Yi but because Ding Yi had only one eye Cao Pi objected and prevented it                                                                                                                                                                      |
+| Predict | <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> <UNK> |
++---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2024-04-30 17:38:27,312:INFO: ===========sampling DONE===========
+2024-04-30 17:38:28,209:INFO: BLEU score for Epoch-1: 
++------------+-----------------------+------------------------+----------------------+------------------------+
+| multi-bleu | bleu_1-gram           | bleu_2-gram            | bleu_3-gram          | bleu_4-gram            |
++------------+-----------------------+------------------------+----------------------+------------------------+
+| 0.0        | 3.405774149493048e-06 | 3.4114837302339686e-06 | 3.41721570952134e-06 | 3.4229702330566254e-06 |
++------------+-----------------------+------------------------+----------------------+------------------------+
