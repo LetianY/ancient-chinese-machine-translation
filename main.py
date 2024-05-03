@@ -8,10 +8,8 @@ import numpy as np
 import torch
 import torch.optim as optim
 from torch.utils.tensorboard import SummaryWriter
-from torch.nn.utils.rnn import pad_sequence
 from terminaltables import AsciiTable
 
-from model_arch.Rnn import EncoderRNN, DecoderRNN, Seq2Seq, metric
 from model_arch.AttModel import AttModel
 from bleu import bleu
 from data_load import (
@@ -23,8 +21,6 @@ from data_load import (
 )
 from hyperparameters import Hyperparams as hp
 from utils import get_logger
-
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 # device
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -42,7 +38,7 @@ logger = get_logger(log_path)
 
 # validation script
 def bleu_script(f):
-    ref_stem = hp.target_test_c_m
+    ref_stem = hp.target_test
     cmd = "{eval_script} {refs} {hyp}".format(
         eval_script=hp.eval_script, refs=ref_stem, hyp=f
     )
@@ -80,58 +76,10 @@ def train():
     dec_voc = len(en2idx)
     writer = SummaryWriter()
     # Load data
-    X, Y, Sources, Targets = load_train_data()
+    X, Y = load_train_data()
     # calc total batch count
     num_batch = len(X) // hp.batch_size
-
-    tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-    custom_tokens = {'additional_special_tokens': ['[Begin]', '[Stop]']}
-    tokenizer.add_special_tokens(custom_tokens)
-
-    gpt2_model = GPT2LMHeadModel.from_pretrained("uer/gpt2-chinese-ancient")
-    gpt2_model.resize_token_embeddings(len(tokenizer))
-    gpt2_model.eval()
-    gpt2_model.to(device)
-
-    # input_ids = tokenizer.encode(X, return_tensors='pt')
-    # Tokenize each sentence in X if X is a list
-    # input_ids = []
-    # for sentence in Sources:
-    #     encoded_input = tokenizer.encode(sentence, add_special_tokens=True, return_tensors='pt')
-    #     input_ids.append(encoded_input)
-
-    # Tokenize each sentence in Sources, ensuring they are padded to the same length
-    input_ids = [tokenizer.encode(sentence, max_length=1024, truncation=True, add_special_tokens=True, return_tensors='pt').T for sentence in Sources]
-    # print(input_ids[0].shape, input_ids[1].shape)
-    input_ids = pad_sequence(input_ids, batch_first=True, padding_value=0).to(device)
-    # print(input_ids.shape)
-    # exit()
-
-    # input_ids = []
-    # for sentence in Sources:
-    #     encoded_input = tokenizer.encode(sentence, add_special_tokens=True, return_tensors='pt')
-    #     input_ids.append(encoded_input)
-    
-    # input_ids = pad_sequence(input_ids, batch_first=True).to(device)
-
-
-    # # Convert list of tensors to a single tensor
-    # print(input_ids.shape)
-    # input_ids = torch.cat(input_ids, dim=0)
-
-    embeddings = gpt2_model.transformer.wte
-    embeddings.requires_grad_(False)  # Freeze the embeddings
-
-    with torch.no_grad():  # Prevent gradients from being computed
-        input_embeddings = embeddings(input_ids)
-
-    embedding_length = model.transformer.wte.weight.shape[1]
-
-    # model = AttModel(hp, enc_voc, dec_voc)
-    # encoder = EncoderRNN(enc_voc, hp.embed_size, hp.hidden_size).to(device)
-    encoder = EncoderRNN(embedding_length, hp.hidden_size).to(device)
-    decoder = DecoderRNN(hp.embed_size, hp.hidden_size, dec_voc).to(device)
-    model = Seq2Seq(encoder, decoder)
+    model = AttModel(hp, enc_voc, dec_voc)
     model.train()
     model.to(device)
     torch.backends.cudnn.benchmark = True  # may speed up Forward propagation
@@ -142,12 +90,11 @@ def train():
     for epoch in range(1, hp.num_epochs + 1):
         current_batches = 0
         for index, current_index in get_batch_indices(len(X), hp.batch_size):
-            x_batch = torch.LongTensor(input_embeddings[index]).to(device)
+            x_batch = torch.LongTensor(X[index]).to(device)
             y_batch = torch.LongTensor(Y[index]).to(device)
 
             optimizer.zero_grad()
-            output = model(x_batch, y_batch)
-            loss, _, acc = metric(output, y_batch)
+            loss, _, acc = model(x_batch, y_batch)
             loss.backward()
             optimizer.step()
 
@@ -221,9 +168,7 @@ def evaluate(model, epoch, writer, score_list):
             np.zeros((hp.batch_size_valid, hp.maxlen), np.int32)
         ).to(device)
         preds = preds_t
-        # _, _preds, _ = model(x_, preds)
-        outputs = model(x_, preds)
-        _, _preds = torch.max(outputs, -1)
+        _, _preds, _ = model(x_, preds)
         preds = _preds.data.cpu().numpy()
 
         # prepare data for BLEU score
