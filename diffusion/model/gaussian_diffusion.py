@@ -1,10 +1,10 @@
 import math
 import torch
 import numpy as np
-from .utils.nn import mean_flat
+from diffusion.model.utils.nn import mean_flat
 
 import sys
-sys.path.append('.')
+sys.path.append('../../model_arch')
 
 
 def _extract_into_tensor(arr, timesteps, broadcast_shape):

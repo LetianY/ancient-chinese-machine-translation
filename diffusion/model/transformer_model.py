@@ -1,4 +1,4 @@
-from transformers import AutoConfig, AutoTokenizer, AutoModel
+from transformers import AutoConfig
 from transformers import BertTokenizer, GPT2LMHeadModel
 from transformers.models.bert.modeling_bert import BertEncoder, BertModel
 
@@ -7,9 +7,8 @@ import torch
 import numpy as np
 import torch as th
 import torch.nn as nn
-import torch.nn.functional as F
 
-from .utils.nn import (
+from diffusion.model.utils.nn import (
     SiLU,
     linear,
     timestep_embedding,
@@ -36,9 +35,9 @@ class TransformerNetModel(nn.Module):
             hidden_t_dim,
             dropout=0,
             config=None,
-            config_name='bert-base-uncased',
+            config_name='uer/gpt2-chinese-ancient',
             vocab_size=None,
-            init_pretrained='no',
+            init_pretrained='gpt2',
             logits_mode=1,
     ):
         super().__init__()
@@ -70,10 +69,12 @@ class TransformerNetModel(nn.Module):
             self.input_up_proj = nn.Sequential(nn.Linear(input_dims, config.hidden_size),
                                                nn.Tanh(), nn.Linear(config.hidden_size, config.hidden_size))
 
-        if init_pretrained == 'bert':
-            print('initializing from pretrained bert...')
+        if init_pretrained == 'gpt2':
+            print('initializing from pretrained model...')
             print(config)
             temp_bert = BertModel.from_pretrained(config_name, config=config)
+            self.tokenizer = BertTokenizer.from_pretrained(config_name)
+            self.model = GPT2LMHeadModel.from_pretrained(config_name, config=config)
 
             self.word_embedding = temp_bert.embeddings.word_embeddings
             with th.no_grad():
