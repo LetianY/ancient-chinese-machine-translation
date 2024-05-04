@@ -1,13 +1,12 @@
 import torch
 
-import numpy as np
-
 
 def mean_flat(tensor):
     """
     Take the mean over all non-batch dimensions.
     """
     return tensor.mean(dim=list(range(1, len(tensor.shape))))
+
 
 def _extract_into_tensor(arr, timesteps, broadcast_shape):
     """
@@ -23,4 +22,3 @@ def _extract_into_tensor(arr, timesteps, broadcast_shape):
     while len(res.shape) < len(broadcast_shape):
         res = res[..., None]
     return res.expand(broadcast_shape)
-
