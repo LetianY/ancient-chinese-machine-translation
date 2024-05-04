@@ -1,6 +1,6 @@
-import src.modeling.diffusion.gaussian_diffusion as gd
-from src.modeling.diffusion.respace import SpacedDiffusion, space_timesteps
-from src.modeling.predictor.transformer_model import TransformerNetModel_encoder_decoder
+import src.gaussian_diffusion as gd
+from src.gaussian_diffusion import SpacedDiffusion, space_timesteps
+from src.transformer_model import TransformerNetModel_encoder_decoder
 
 
 def create_model_and_diffusion(
