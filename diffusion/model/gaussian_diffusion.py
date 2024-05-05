@@ -4,7 +4,7 @@ import numpy as np
 from diffusion.model.utils.nn import mean_flat
 
 import sys
-sys.path.append('../../model_arch')
+sys.path.append('../../diffusion')
 
 
 def _extract_into_tensor(arr, timesteps, broadcast_shape):
@@ -482,7 +482,7 @@ class GaussianDiffusion:
         :return: a dict with the key "loss" containing a tensor of shape [N].
                  Some mean or variance settings may also have other keys.
         """
-        # save the orignal x_0: We are not using this beacause z_0 = noised(x_start_fix)
+        # if fixed embedding from diffusion_utils.load_model_emb is used
         x_start_fix = x_start
 
         assert 'input_ids' in model_kwargs

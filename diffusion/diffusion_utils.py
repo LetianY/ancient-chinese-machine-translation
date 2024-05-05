@@ -6,7 +6,7 @@ import time
 from diffusion.model import gaussian_diffusion as gd
 from diffusion.model.gaussian_diffusion import SpacedDiffusion, space_timesteps
 from diffusion.model.transformer_model import TransformerNetModel
-from transformers import BertTokenizer, AutoTokenizer, PreTrainedTokenizerFast
+from transformers import BertTokenizer, AutoTokenizer, PreTrainedTokenizerFast, GPT2LMHeadModel
 
 
 class myTokenizer():
@@ -73,7 +73,13 @@ class myTokenizer():
 
 def load_model_emb(args, tokenizer):
     ### random emb or pre-defined embedding like glove embedding. You can custome your own init here.
-    model = torch.nn.Embedding(tokenizer.vocab_size, args.hidden_dim)
+    ### will only be used if gd.training_losses_seq2seq changes
+    ### otherwise, embedding will be retrieved from transformer model
+    if args.vocab == 'gpt2':
+        temp_model = GPT2LMHeadModel.from_pretrained("uer/gpt2-chinese-ancient")
+        model = temp_model.transformer.wte
+    else:
+        model = torch.nn.Embedding(tokenizer.vocab_size, args.hidden_dim)
     path_save = '{}/random_emb.torch'.format(args.checkpoint_path)
     path_save_ind = path_save + ".done"
     if int(os.environ['LOCAL_RANK']) == 0:
