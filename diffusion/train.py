@@ -1,12 +1,12 @@
 """
-Train a diffusion model on images.
+Training framework for diffusion adapted from original Image repo.
 """
 
 import argparse
 import json, torch, os
 
 from model.utils import dist_util, logger
-from model.text_datasets import load_data_text
+from model.generate_data import load_data_text
 from model.step_sample import create_named_schedule_sampler
 from diffusion_utils import (
     load_defaults_config,
@@ -24,16 +24,18 @@ import wandb
 # os.environ["WANDB_API_KEY"] = ""
 os.environ["WANDB_MODE"] = "offline"
 
+
 def create_argparser():
     defaults = dict()
     defaults.update(load_defaults_config())
     parser = argparse.ArgumentParser()
-    add_dict_to_argparser(parser, defaults) # update latest args according to argparse
+    add_dict_to_argparser(parser, defaults)  # update latest args according to argparse
     return parser
+
 
 def main():
     args = create_argparser().parse_args()
-    set_seed(args.seed) 
+    set_seed(args.seed)
     dist_util.setup_dist()
     logger.configure()
     logger.log("### Creating data loader...")
@@ -41,26 +43,28 @@ def main():
     tokenizer = load_tokenizer(args)
     model_weight, tokenizer = load_model_emb(args, tokenizer)
 
-    data = load_data_text(
+    data_train = load_data_text(
         batch_size=args.batch_size,
         seq_len=args.seq_len,
-        data_args = args,
+        data_args=args,
+        split='train',
+        deterministic=True,    # shuffle=False
         loaded_vocab=tokenizer,
-        model_emb=model_weight # use model's weights as init
+        model_emb=model_weight  # use model's weights as init
     )
-    next(data)
+    next(data_train)
 
     data_valid = load_data_text(
         batch_size=args.batch_size,
         seq_len=args.seq_len,
         data_args=args,
         split='valid',
-        deterministic=True,
+        deterministic=True,     # shuffle=False
         loaded_vocab=tokenizer,
-        model_emb=model_weight  # using the same embedding wight with tranining data
+        model_emb=model_weight  # using the same embedding wight with training data
     )
 
-    print('#'*30, 'size of vocab', args.vocab_size)
+    print('#' * 30, 'size of vocab', args.vocab_size)
 
     logger.log("### Creating model and diffusion...")
     # print('#'*30, 'CUDA_VISIBLE_DEVICES', os.environ['CUDA_VISIBLE_DEVICES'])
@@ -68,7 +72,7 @@ def main():
         **args_to_dict(args, load_defaults_config().keys())
     )
     # print('#'*30, 'cuda', dist_util.dev())
-    model.to(dist_util.dev()) #  DEBUG **
+    model.to(dist_util.dev())  # DEBUG **
     # model.cuda() #  DEBUG **
 
     pytorch_total_params = sum(p.numel() for p in model.parameters())
@@ -92,7 +96,7 @@ def main():
     TrainLoop(
         model=model,
         diffusion=diffusion,
-        data=data,
+        data=data_train,
         batch_size=args.batch_size,
         microbatch=args.microbatch,
         lr=args.lr,
@@ -110,6 +114,7 @@ def main():
         eval_data=data_valid,
         eval_interval=args.eval_interval
     ).run_loop()
+
 
 if __name__ == "__main__":
     main()
