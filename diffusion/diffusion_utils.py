@@ -49,7 +49,7 @@ class myTokenizer():
         if isinstance(self.tokenizer, dict):
             input_ids = [[0] + [self.tokenizer.get(x, self.tokenizer['[UNK]']) for x in seq.split()] + [1] for seq in
                          sentences]
-        elif isinstance(self.tokenizer, PreTrainedTokenizerFast):
+        elif isinstance(self.tokenizer, BertTokenizer):
             input_ids = self.tokenizer(sentences, add_special_tokens=True)['input_ids']
         else:
             assert False, "invalid type of vocab_dict"
@@ -61,7 +61,7 @@ class myTokenizer():
             while len(seq) > 0 and seq[-1] == self.pad_token_id:
                 seq.pop()
             tokens = " ".join([self.rev_tokenizer[x] for x in seq]).replace('__ ', '').replace('@@ ', '')
-        elif isinstance(self.tokenizer, PreTrainedTokenizerFast):
+        elif isinstance(self.tokenizer, BertTokenizer):
             seq = seq.squeeze(-1).tolist()
             while len(seq) > 0 and seq[-1] == self.pad_token_id:
                 seq.pop()
