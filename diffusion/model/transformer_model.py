@@ -1,4 +1,4 @@
-from transformers import AutoConfig, GPT2LMHeadModel
+from transformers import AutoConfig, GPT2LMHeadModel, GPT2Config, GPT2Model
 from transformers.models.bert.modeling_bert import BertEncoder, BertModel
 
 import torch
@@ -42,7 +42,7 @@ class TransformerNetModel(nn.Module):
 
         if config is None:
             config = AutoConfig.from_pretrained(config_name)
-            config.hidden_dropout_prob = dropout
+            config.resid_pdrop = dropout
 
         self.input_dims = input_dims
         self.hidden_t_dim = hidden_t_dim
@@ -51,11 +51,13 @@ class TransformerNetModel(nn.Module):
         self.logits_mode = logits_mode
         self.hidden_size = config.hidden_size
 
+        # embedding layer: can be adapted from transformer
         self.word_embedding = nn.Embedding(vocab_size, self.input_dims)
         self.lm_head = nn.Linear(self.input_dims, vocab_size)
         with torch.no_grad():
             self.lm_head.weight = self.word_embedding.weight
 
+        # time_stamp embedding layer for diffusion
         time_embed_dim = hidden_t_dim * 4
         self.time_embed = nn.Sequential(
             linear(hidden_t_dim, time_embed_dim),
@@ -63,6 +65,7 @@ class TransformerNetModel(nn.Module):
             linear(time_embed_dim, config.hidden_size),
         )
 
+        # conversion layer for input_dims --> hidden
         if self.input_dims != config.hidden_size:
             self.input_up_proj = nn.Sequential(nn.Linear(input_dims, config.hidden_size),
                                                nn.Tanh(), nn.Linear(config.hidden_size, config.hidden_size))
@@ -72,31 +75,35 @@ class TransformerNetModel(nn.Module):
             print(config)
             temp_model = GPT2LMHeadModel.from_pretrained(config_name, config=config)
 
+            # embedding layer
             self.word_embedding = temp_model.transformer.wte
             with torch.no_grad():
                 self.lm_head.weight = self.word_embedding.weight
-            # self.lm_head.weight.requires_grad = False
-            # self.word_embedding.weight.requires_grad = False
+            # annotated out if training embedding is opted
+            self.lm_head.weight.requires_grad = False
+            self.word_embedding.weight.requires_grad = False
 
-            self.input_transformers = temp_model.encoder
+            # transformer layers: prediction for diffusion, only use one layer
+            self.input_transformers = temp_model.transformer.h[0]
+
+            # positional embedding layer
             self.register_buffer("position_ids", torch.arange(config.max_position_embeddings).expand((1, -1)))
-            self.position_embeddings = temp_bert.embeddings.position_embeddings
-            self.LayerNorm = temp_bert.embeddings.LayerNorm
+            self.position_embeddings = temp_model.transformer.wpe
+            # annotated out if training embedding is opted
+            self.position_embeddings.weight.requires_grad = False
 
-            del temp_bert.embeddings
-            del temp_bert.pooler
+            del temp_model
 
         elif init_pretrained == 'no':
-            self.input_transformers = BertEncoder(config)
-
-            self.register_buffer("position_ids", torch.arange(config.max_position_embeddings).expand((1, -1)))
-            self.position_embeddings = nn.Embedding(config.max_position_embeddings, config.hidden_size)
-            self.LayerNorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
+            self.input_transformers = GPT2Model(config).transformer.h[0]
+            self.register_buffer("position_ids", torch.arange(config.n_positions).expand((1, -1)))
+            self.position_embeddings = nn.Embedding(config.n_positions, config.hidden_size)
 
         else:
             assert False, "invalid type of init_pretrained"
 
-        self.dropout = nn.Dropout(config.hidden_dropout_prob)
+        self.dropout = nn.Dropout(config.resid_pdrop)
+        self.LayerNorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_epsilon)
 
         if self.output_dims != config.hidden_size:
             self.output_down_proj = nn.Sequential(nn.Linear(config.hidden_size, config.hidden_size),
@@ -143,11 +150,15 @@ class TransformerNetModel(nn.Module):
         emb_inputs = self.position_embeddings(position_ids) + emb_x + emb_t.unsqueeze(1).expand(-1, seq_length, -1)
         emb_inputs = self.dropout(self.LayerNorm(emb_inputs))
 
-        input_trans_hidden_states = self.input_transformers(emb_inputs).last_hidden_state
+        # input_trans_hidden_states = emb_inputs
+        # for layer in self.input_transformers:
+        #     input_trans_hidden_states = layer(input_trans_hidden_states)
+        input_trans_hidden_states = self.input_transformers(emb_inputs)
 
         if self.output_dims != self.hidden_size:
             h = self.output_down_proj(input_trans_hidden_states)
         else:
             h = input_trans_hidden_states
         h = h.type(x.dtype)
+
         return h
