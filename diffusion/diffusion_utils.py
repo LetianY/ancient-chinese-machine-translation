@@ -78,6 +78,7 @@ def load_model_emb(args, tokenizer):
     if args.vocab == 'gpt2':
         temp_model = GPT2LMHeadModel.from_pretrained("uer/gpt2-chinese-ancient")
         model = temp_model.transformer.wte
+        model.weight.requires_grad = False  # we want fixed embeddings
     else:
         model = torch.nn.Embedding(tokenizer.vocab_size, args.hidden_dim)
     path_save = '{}/random_emb.torch'.format(args.checkpoint_path)
