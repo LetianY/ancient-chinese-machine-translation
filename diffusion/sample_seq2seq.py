@@ -1,25 +1,25 @@
 """
 Generate a large batch of samples from a model and save them as a large
 numpy array. This can be used to produce samples for FID evaluation.
+
+Modified from original repo.
 """
 
 import argparse
-import os, json
-from tracemalloc import start
+import os, json, sys
 
-import numpy as np
 import torch as th
 import torch.distributed as dist
 from transformers import set_seed
-from diffuseq.rounding import denoised_fn_round
-from diffuseq.text_datasets import load_data_text
+from model.rounding import denoised_fn_round
+from model.generate_data import load_data_text
 
-# from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
+from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 
 import time
-from diffuseq.utils import dist_util, logger
+from model.utils import dist_util, logger
 from functools import partial
-from basic_utils import (
+from diffusion_utils import (
     load_defaults_config,
     create_model_and_diffusion,
     add_dict_to_argparser,
@@ -87,9 +87,10 @@ def main():
         seq_len=args.seq_len,
         deterministic=True,
         data_args=args,
-        split=args.split,
+        # split=args.split,
+        split='test',
         loaded_vocab=tokenizer,
-        model_emb=model_emb.cpu(),  # using the same embedding wight with tranining data
+        model_emb=model_emb.cpu(),  # using the same embedding wight with training data
         loop=False
     )
 
