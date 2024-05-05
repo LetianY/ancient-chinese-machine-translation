@@ -48,7 +48,7 @@ def main():
         seq_len=args.seq_len,
         data_args=args,
         split='train',
-        deterministic=True,    # shuffle=False
+        deterministic=False,    # shuffle=True
         loaded_vocab=tokenizer,
         model_emb=model_weight  # use model's weights as init
     )
