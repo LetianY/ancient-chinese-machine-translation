@@ -1,11 +1,9 @@
-from transformers import AutoConfig
-from transformers import BertTokenizer, GPT2LMHeadModel
+from transformers import AutoConfig, GPT2LMHeadModel
 from transformers.models.bert.modeling_bert import BertEncoder, BertModel
 
 import torch
 
 import numpy as np
-import torch as th
 import torch.nn as nn
 
 from diffusion.model.utils.nn import (
@@ -55,7 +53,7 @@ class TransformerNetModel(nn.Module):
 
         self.word_embedding = nn.Embedding(vocab_size, self.input_dims)
         self.lm_head = nn.Linear(self.input_dims, vocab_size)
-        with th.no_grad():
+        with torch.no_grad():
             self.lm_head.weight = self.word_embedding.weight
 
         time_embed_dim = hidden_t_dim * 4
@@ -72,17 +70,15 @@ class TransformerNetModel(nn.Module):
         if init_pretrained == 'gpt2':
             print('initializing from pretrained model...')
             print(config)
-            temp_bert = BertModel.from_pretrained(config_name, config=config)
-            self.tokenizer = BertTokenizer.from_pretrained(config_name)
-            self.model = GPT2LMHeadModel.from_pretrained(config_name, config=config)
+            temp_model = GPT2LMHeadModel.from_pretrained(config_name, config=config)
 
-            self.word_embedding = temp_bert.embeddings.word_embeddings
-            with th.no_grad():
+            self.word_embedding = temp_model.transformer.wte
+            with torch.no_grad():
                 self.lm_head.weight = self.word_embedding.weight
             # self.lm_head.weight.requires_grad = False
             # self.word_embedding.weight.requires_grad = False
 
-            self.input_transformers = temp_bert.encoder
+            self.input_transformers = temp_model.encoder
             self.register_buffer("position_ids", torch.arange(config.max_position_embeddings).expand((1, -1)))
             self.position_embeddings = temp_bert.embeddings.position_embeddings
             self.LayerNorm = temp_bert.embeddings.LayerNorm
@@ -115,12 +111,12 @@ class TransformerNetModel(nn.Module):
         elif self.logits_mode == 2:  # standard cosine similarity
             text_emb = hidden_repr
             emb_norm = (self.lm_head.weight ** 2).sum(-1).view(-1, 1)  # vocab
-            text_emb_t = th.transpose(text_emb.view(-1, text_emb.size(-1)), 0, 1)  # d, bsz*seqlen
+            text_emb_t = torch.transpose(text_emb.view(-1, text_emb.size(-1)), 0, 1)  # d, bsz*seqlen
             arr_norm = (text_emb ** 2).sum(-1).view(-1, 1)  # bsz*seqlen, 1
-            dist = emb_norm + arr_norm.transpose(0, 1) - 2.0 * th.mm(self.lm_head.weight,
-                                                                     text_emb_t)  # (vocab, d) x (d, bsz*seqlen)
-            scores = th.sqrt(th.clamp(dist, 0.0, np.inf)).view(emb_norm.size(0), hidden_repr.size(0),
-                                                               hidden_repr.size(1))  # vocab, bsz*seqlen
+            dist = emb_norm + arr_norm.transpose(0, 1) - 2.0 * torch.mm(self.lm_head.weight,
+                                                                        text_emb_t)  # (vocab, d) x (d, bsz*seqlen)
+            scores = torch.sqrt(torch.clamp(dist, 0.0, np.inf)).view(emb_norm.size(0), hidden_repr.size(0),
+                                                                     hidden_repr.size(1))  # vocab, bsz*seqlen
             scores = -scores.permute(1, 2, 0).contiguous()
             return scores
         else:
