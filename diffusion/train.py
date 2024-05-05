@@ -24,6 +24,10 @@ import wandb
 # os.environ["WANDB_API_KEY"] = ""
 os.environ["WANDB_MODE"] = "offline"
 
+import sys
+sys.path.append('../diffusion')
+sys.path.append('./model')
+
 
 def create_argparser():
     defaults = dict()

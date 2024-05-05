@@ -1,4 +1,4 @@
-python -m torch.distributed.launch --nproc_per_node=2 --master_port=12233 --use_env run_train.py \
+python -m torch.distributed.launch --nproc_per_node=2 --master_port=12233 --use_env scripts/run_train.py \
 --diff_steps 100 \
 --lr 0.001 \
 --learning_steps 3000 \
@@ -8,7 +8,7 @@ python -m torch.distributed.launch --nproc_per_node=2 --master_port=12233 --use_
 --hidden_dim 768 \
 --bsz 2048 \
 --dataset 24history \
---data_dir ../data \
+--data_dir ./data \
 --vocab gpt2 \
 --seq_len 256 \
 --schedule_sampler lossaware \
