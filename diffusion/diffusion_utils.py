@@ -3,9 +3,9 @@ import torch
 import json, os
 import time
 
-from diffusion.model import gaussian_diffusion as gd
-from diffusion.model.gaussian_diffusion import SpacedDiffusion, space_timesteps
-from diffusion.model.transformer_model import TransformerNetModel
+from model import gaussian_diffusion as gd
+from model.gaussian_diffusion import SpacedDiffusion, space_timesteps
+from model.transformer_model import TransformerNetModel
 from transformers import BertTokenizer, AutoTokenizer, PreTrainedTokenizerFast, GPT2LMHeadModel
 
 
