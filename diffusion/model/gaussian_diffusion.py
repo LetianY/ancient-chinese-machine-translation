@@ -1,7 +1,7 @@
 import math
 import torch
 import numpy as np
-from diffusion.model.utils.nn import mean_flat
+from .utils.nn import mean_flat
 
 import sys
 sys.path.append('../../diffusion')
