@@ -16,6 +16,9 @@ from model.generate_data import load_data_text
 
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 
+import torch.multiprocessing as mp
+mp.set_sharing_strategy('file_system')
+
 import time
 from model.utils import dist_util, logger
 from functools import partial
@@ -26,6 +29,7 @@ from diffusion_utils import (
     args_to_dict,
     load_tokenizer
 )
+
 
 def create_argparser():
     defaults = dict(model_path='', step=0, out_dir='', top_p=0)

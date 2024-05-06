@@ -1,15 +1,15 @@
-torchrun --nproc_per_node=4 --master_port=12233 scripts/run_train.py \
---diff_steps 100 \
+CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1 --master_port=12233 scripts/run_train.py \
+--diff_steps 200 \
 --lr 0.001 \
---learning_steps 2000 \
---save_interval 10 \
---log_interval 10 \
---eval_interval 10 \
+--learning_steps 3000 \
+--save_interval 100 \
+--log_interval 100 \
+--eval_interval 100 \
 --seed 102 \
 --noise_schedule sqrt \
 --hidden_dim 768 \
 --hidden_t_dim 768 \
---bsz 4096 \
+--bsz 2048 \
 --dataset 24history \
 --data_dir ./data \
 --vocab gpt2 \

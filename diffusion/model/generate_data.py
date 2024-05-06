@@ -53,7 +53,7 @@ def load_data_text(
             # drop_last=True,
             sampler=sampler,
             shuffle=not deterministic,
-            num_workers=4,
+            num_workers=1,  # 4
         )
     else:
         data_loader = DataLoader(
@@ -62,7 +62,7 @@ def load_data_text(
             # drop_last=True,
             # sampler=sampler,
             shuffle=not deterministic,
-            num_workers=4,
+            num_workers=1,  # 4
         )
 
     if loop:
@@ -94,7 +94,7 @@ def helper_tokenize(sentence_lst, vocab_dict, seq_len):
     tokenized_datasets = raw_datasets.map(
         tokenize_function,
         batched=True,
-        num_proc=4,
+        num_proc=1, # 4
         remove_columns=['src', 'trg'],
         load_from_cache_file=True,
         desc="Running tokenizer on dataset",
@@ -130,7 +130,7 @@ def helper_tokenize(sentence_lst, vocab_dict, seq_len):
     tokenized_datasets = tokenized_datasets.map(
         merge_and_mask,
         batched=True,
-        num_proc=1,
+        num_proc=1, # 4
         desc=f"merge and mask",
     )
 
