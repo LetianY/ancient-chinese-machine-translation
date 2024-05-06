@@ -1,16 +1,20 @@
 python -m torch.distributed.launch --nproc_per_node=4 --master_port=12233 --use_env scripts/run_train.py \
 --diff_steps 100 \
 --lr 0.001 \
---learning_steps 3000 \
+--learning_steps 2000 \
+--save_interval 10 \
+--log_interval 10 \
+--eval_interval 10 \
 --seed 102 \
 --noise_schedule sqrt \
 --hidden_dim 768 \
 --hidden_t_dim 768 \
---bsz 2048 \
+--bsz 4096 \
 --dataset 24history \
 --data_dir ./data \
 --vocab gpt2 \
 --use_plm_init gpt2 \
 --seq_len 128 \
 --schedule_sampler lossaware \
+--resume_checkpoint none \
 --notes train-24history

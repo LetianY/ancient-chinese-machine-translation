@@ -24,6 +24,8 @@ if __name__ == '__main__':
     parser.add_argument('--hidden_dim', type=int, default=128, help='hidden size of word embedding')
     parser.add_argument('--learning_steps', type=int, default=40000, help='total steps of learning')
     parser.add_argument('--save_interval', type=int, default=10000, help='save step')
+    parser.add_argument('--log_interval', type=int, default=10000, help='log step')
+    parser.add_argument('--eval_interval', type=int, default=10000, help='eval step')
     parser.add_argument('--resume_checkpoint', type=str, default='none',
                         help='path to resume checkpoint, like xxx/xxx.pt')
     parser.add_argument('--lr', type=float, default=1e-04, help='learning rate')
@@ -79,6 +81,7 @@ if __name__ == '__main__':
                   f"--seq_len {args.seq_len} --hidden_t_dim {args.hidden_t_dim} --seed {args.seed} " \
                   f"--hidden_dim {args.hidden_dim} " \
                   f"--learning_steps {args.learning_steps} --save_interval {args.save_interval} " \
+                  f"--log_interval {args.log_interval} --eval_interval {args.eval_interval} " \
                   f"--config_name {args.config_name} --notes {args.notes}"
 
     COMMANDLINE += " " + args.app

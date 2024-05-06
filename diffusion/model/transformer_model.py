@@ -60,7 +60,7 @@ class TransformerNetModel(nn.Module):
 
         # time_stamp embedding layer for diffusion
         # time_embed_dim = hidden_t_dim * 4
-        time_embed_dim = hidden_t_dim * 2
+        time_embed_dim = hidden_t_dim
         self.time_embed = nn.Sequential(
             linear(hidden_t_dim, time_embed_dim),
             SiLU(),
