@@ -13,6 +13,26 @@ from .utils.nn import (
 )
 
 
+class CustomTransformer(nn.Module):
+    def __init__(self, hidden_size=768, num_layers=1, num_heads=4, ff_dim=1024, dropout=0.1):
+        super(CustomTransformer, self).__init__()
+
+        self.layers = nn.ModuleList([
+            nn.TransformerEncoderLayer(
+                d_model=hidden_size,
+                nhead=num_heads,
+                dim_feedforward=ff_dim,
+                dropout=dropout
+            ) for _ in range(num_layers)
+        ])
+        self.norm = nn.LayerNorm(hidden_size)
+
+    def forward(self, src, attention_mask=None):
+        for layer in self.layers:
+            src = layer(src, src_mask=attention_mask)
+        return self.norm(src)
+
+
 class TransformerNetModel(nn.Module):
     """
     The full Transformer model with attention and timestep embedding.
@@ -87,7 +107,12 @@ class TransformerNetModel(nn.Module):
             self.word_embedding.weight.requires_grad = False
 
             # transformer layers: prediction for diffusion, only use one layer
-            self.input_transformers = temp_model.transformer.h[0]
+            # self.input_transformers = temp_model.transformer.h[0]
+            self.input_transformers = CustomTransformer(hidden_size=self.hidden_size,
+                                                        num_layers=1,
+                                                        num_heads=4,
+                                                        ff_dim=1024,
+                                                        dropout=self.dropout)
 
             # positional embedding layer
             self.register_buffer("position_ids", torch.arange(config.max_position_embeddings).expand((1, -1)))
@@ -98,7 +123,12 @@ class TransformerNetModel(nn.Module):
             del temp_model
 
         elif init_pretrained == 'no':
-            self.input_transformers = GPT2LMHeadModel(config).transformer.h[0]
+            # self.input_transformers = GPT2LMHeadModel(config).transformer.h[0]
+            self.input_transformers = CustomTransformer(hidden_size=self.hidden_size,
+                                                        num_layers=1,
+                                                        num_heads=4,
+                                                        ff_dim=1024,
+                                                        dropout=self.dropout)
             self.register_buffer("position_ids", torch.arange(config.n_positions).expand((1, -1)))
             self.position_embeddings = nn.Embedding(config.n_positions, config.hidden_size)
 
