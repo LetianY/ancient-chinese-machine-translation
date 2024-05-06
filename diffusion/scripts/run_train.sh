@@ -6,6 +6,7 @@ python -m torch.distributed.launch --nproc_per_node=4 --master_port=12233 --use_
 --seed 102 \
 --noise_schedule sqrt \
 --hidden_dim 768 \
+--hidden_t_dim 768 \
 --bsz 2048 \
 --dataset 24history \
 --data_dir ./data \
