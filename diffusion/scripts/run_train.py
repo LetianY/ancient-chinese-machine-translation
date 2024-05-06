@@ -31,10 +31,10 @@ if __name__ == '__main__':
     parser.add_argument('--microbatch', type=int, default=64, help='microbatch size')
     parser.add_argument('--seed', type=int, default=101, help='random seed')
 
-    parser.add_argument('--config_name', type=str, default='bert-base-uncased', help='config of pre-trained models')
-    parser.add_argument('--vocab', type=str, default='bert',
-                        help='use bert vocab or load external vocab dict if given as path')
-    parser.add_argument('--use_plm_init', type=str, default='no', choices=['no', 'bert'],
+    parser.add_argument('--config_name', type=str, default='uer/gpt2-chinese-ancient', help='config of pre-trained models')
+    parser.add_argument('--vocab', type=str, default='gpt2',
+                        help='use gpt2 vocab or load external vocab dict if given as path')
+    parser.add_argument('--use_plm_init', type=str, default='gpt2', choices=['no', 'gpt2'],
                         help='load init parameter from the pre-trained lm')
 
     parser.add_argument('--notes', type=str, default='-', help='as training notes or specifical args')

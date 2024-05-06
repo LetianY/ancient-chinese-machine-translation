@@ -1,5 +1,5 @@
 python -m torch.distributed.launch --nproc_per_node=4 --master_port=12233 --use_env scripts/run_train.py \
---diff_steps 100 \
+--diff_steps 200 \
 --lr 0.001 \
 --learning_steps 3000 \
 --save_interval 100 \
