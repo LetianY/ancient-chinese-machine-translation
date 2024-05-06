@@ -70,8 +70,8 @@ class TransformerNetModel(nn.Module):
         if self.input_dims != config.hidden_size:
             self.input_up_proj = nn.Sequential(nn.Linear(input_dims, config.hidden_size),
                                                nn.Tanh(), nn.Linear(config.hidden_size, config.hidden_size))
-        print('init_pretrained:', init_pretrained)
-        print(config)
+        # print('init_pretrained:', init_pretrained)
+        # print(config)
         if init_pretrained == 'gpt2':
             print('initializing from pretrained model...')
             print(config)
