@@ -4,4 +4,4 @@
 #SBATCH -t 1:00:00
 module load cudnn cuda
 source pytorch.venv/bin/activate
-bash scripts/run_train.shc
+bash scripts/run_train.sh
