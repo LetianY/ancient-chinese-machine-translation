@@ -2,7 +2,6 @@ python -m torch.distributed.launch --nproc_per_node=4 --master_port=12233 --use_
 --diff_steps 100 \
 --lr 0.001 \
 --learning_steps 3000 \
---log_interval 20 \
 --seed 102 \
 --noise_schedule sqrt \
 --hidden_dim 768 \
