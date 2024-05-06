@@ -59,7 +59,8 @@ class TransformerNetModel(nn.Module):
             self.lm_head.weight = self.word_embedding.weight
 
         # time_stamp embedding layer for diffusion
-        time_embed_dim = hidden_t_dim * 4
+        # time_embed_dim = hidden_t_dim * 4
+        time_embed_dim = hidden_t_dim * 2
         self.time_embed = nn.Sequential(
             linear(hidden_t_dim, time_embed_dim),
             SiLU(),
@@ -74,7 +75,7 @@ class TransformerNetModel(nn.Module):
         # print(config)
         if init_pretrained == 'gpt2':
             print('initializing from pretrained model...')
-            print(config)
+            # print(config)
             temp_model = GPT2LMHeadModel.from_pretrained(config_name, config=config)
 
             # embedding layer
