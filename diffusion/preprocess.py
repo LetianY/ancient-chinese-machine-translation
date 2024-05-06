@@ -1,11 +1,14 @@
 import json
 import codecs
 
-def convert_to_jsonl(src_file, trg_file, output_file):
+
+def convert_to_jsonl(src_file, trg_file, output_file, max_lines=100000):
     with (open(src_file, 'r', encoding='utf-8') as src,
           open(trg_file, 'r', encoding='utf-8') as trg,
           open(output_file, 'w', encoding='utf-8') as out):
-        for src_line, trg_line in zip(src, trg):
+        for index, (src_line, trg_line) in enumerate(zip(src, trg)):
+            if index >= max_lines:
+                break
             src_line = src_line.strip()
             trg_line = trg_line.strip()
 
@@ -26,8 +29,9 @@ for dataset in ['train', 'test']:
     trg_file = trg_file_path.format(dataset)
     if dataset == 'test':
         output_file = output_file_path.format(dataset)
-        convert_to_jsonl(src_file, trg_file, output_file)
+        convert_to_jsonl(src_file, trg_file, output_file, max_lines=100000)
     else:
+        pass
         with codecs.open(src_file, "r", "utf-8") as f:
             source_data = f.readlines()
         with codecs.open(trg_file, "r", "utf-8") as f:
