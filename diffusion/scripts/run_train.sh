@@ -1,4 +1,4 @@
-python -m torch.distributed.launch --nproc_per_node=4 --master_port=12233 --use_env scripts/run_train.py \
+torchrun --nproc_per_node=4 --master_port=12233 scripts/run_train.py \
 --diff_steps 100 \
 --lr 0.001 \
 --learning_steps 2000 \
