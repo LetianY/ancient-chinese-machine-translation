@@ -10,6 +10,7 @@ python -m torch.distributed.launch --nproc_per_node=4 --master_port=12233 --use_
 --dataset 24history \
 --data_dir ./data \
 --vocab gpt2 \
+--config_name gpt2 \
 --seq_len 256 \
 --schedule_sampler lossaware \
 --notes train-24history

@@ -41,7 +41,8 @@ class TransformerNetModel(nn.Module):
         super().__init__()
 
         if config is None:
-            config = AutoConfig.from_pretrained(config_name)
+            # config = AutoConfig.from_pretrained(config_name)
+            config = GPT2Config.from_pretrained(config_name)
             config.resid_pdrop = dropout
 
         self.input_dims = input_dims
@@ -69,7 +70,8 @@ class TransformerNetModel(nn.Module):
         if self.input_dims != config.hidden_size:
             self.input_up_proj = nn.Sequential(nn.Linear(input_dims, config.hidden_size),
                                                nn.Tanh(), nn.Linear(config.hidden_size, config.hidden_size))
-
+        print('init_pretrained:', init_pretrained)
+        print(config)
         if init_pretrained == 'gpt2':
             print('initializing from pretrained model...')
             print(config)
@@ -95,7 +97,7 @@ class TransformerNetModel(nn.Module):
             del temp_model
 
         elif init_pretrained == 'no':
-            self.input_transformers = GPT2Model(config).transformer.h[0]
+            self.input_transformers = GPT2LMHeadModel(config).transformer.h[0]
             self.register_buffer("position_ids", torch.arange(config.n_positions).expand((1, -1)))
             self.position_embeddings = nn.Embedding(config.n_positions, config.hidden_size)
 
