@@ -2,3 +2,7 @@
 /corpora
 /preprocessed
 *.pyc
+/.idea
+/diffusion/.idea
+*.xml
+*.iml
