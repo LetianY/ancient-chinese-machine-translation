@@ -1,0 +1,1146 @@
+Logging to diffusion_models/diffuseq_24history_h768_lr0.001_t200_sqrt_lossaware_seed102_train-24history20240506-06:37:28
+### Creating data loader...
+### Creating model and diffusion...
+### The parameter count is 25420314
+### Saving the hyperparameters to diffusion_models/diffuseq_24history_h768_lr0.001_t200_sqrt_lossaware_seed102_train-24history20240506-06:37:28/training_args.json
+### Training...
+------------------------
+| grad_norm | 17       |
+| loss      | 6.25     |
+| loss_q0   | 6.12     |
+| loss_q1   | 6.25     |
+| loss_q2   | 6.4      |
+| loss_q3   | 6.24     |
+| mse       | 0.895    |
+| mse_q0    | 0.825    |
+| mse_q1    | 0.886    |
+| mse_q2    | 0.919    |
+| mse_q3    | 0.945    |
+| nll       | 17.3     |
+| nll_q0    | 13.8     |
+| nll_q1    | 16.4     |
+| nll_q2    | 18.4     |
+| nll_q3    | 20.4     |
+| samples   | 2.05e+03 |
+| step      | 0        |
+------------------------
+---------------------------
+| eval_loss    | 6.32     |
+| eval_loss_q0 | 6.16     |
+| eval_loss_q1 | 6.34     |
+| eval_loss_q2 | 6.33     |
+| eval_loss_q3 | 6.45     |
+| eval_mse     | 0.875    |
+| eval_mse_q0  | 0.806    |
+| eval_mse_q1  | 0.868    |
+| eval_mse_q2  | 0.897    |
+| eval_mse_q3  | 0.927    |
+| eval_nll     | 25.2     |
+| eval_nll_q0  | 21       |
+| eval_nll_q1  | 24.9     |
+| eval_nll_q2  | 26.6     |
+| eval_nll_q3  | 28.3     |
+---------------------------
+------------------------
+| grad_norm | 17.2     |
+| loss      | 6.05     |
+| loss_q0   | 6.04     |
+| loss_q1   | 6.04     |
+| loss_q2   | 6.05     |
+| loss_q3   | 6.05     |
+| mse       | 0.707    |
+| mse_q0    | 0.673    |
+| mse_q1    | 0.706    |
+| mse_q2    | 0.717    |
+| mse_q3    | 0.733    |
+| nll       | 37.2     |
+| nll_q0    | 26.9     |
+| nll_q1    | 37.2     |
+| nll_q2    | 41.1     |
+| nll_q3    | 43.8     |
+| samples   | 2.07e+05 |
+| step      | 100      |
+------------------------
+---------------------------
+| eval_loss    | 5.92     |
+| eval_loss_q0 | 5.84     |
+| eval_loss_q1 | 6.04     |
+| eval_loss_q2 | 5.89     |
+| eval_loss_q3 | 5.92     |
+| eval_mse     | 0.577    |
+| eval_mse_q0  | 0.542    |
+| eval_mse_q1  | 0.594    |
+| eval_mse_q2  | 0.578    |
+| eval_mse_q3  | 0.595    |
+| eval_nll     | 39.1     |
+| eval_nll_q0  | 29.5     |
+| eval_nll_q1  | 40.7     |
+| eval_nll_q2  | 41.9     |
+| eval_nll_q3  | 45.1     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.5     |
+| loss      | 5.7      |
+| loss_q0   | 5.7      |
+| loss_q1   | 5.71     |
+| loss_q2   | 5.7      |
+| loss_q3   | 5.71     |
+| mse       | 0.467    |
+| mse_q0    | 0.447    |
+| mse_q1    | 0.467    |
+| mse_q2    | 0.473    |
+| mse_q3    | 0.479    |
+| nll       | 38       |
+| nll_q0    | 32       |
+| nll_q1    | 38.4     |
+| nll_q2    | 40.3     |
+| nll_q3    | 41.5     |
+| samples   | 4.12e+05 |
+| step      | 200      |
+------------------------
+---------------------------
+| eval_loss    | 5.63     |
+| eval_loss_q0 | 5.61     |
+| eval_loss_q1 | 5.71     |
+| eval_loss_q2 | 5.58     |
+| eval_loss_q3 | 5.63     |
+| eval_mse     | 0.362    |
+| eval_mse_q0  | 0.343    |
+| eval_mse_q1  | 0.367    |
+| eval_mse_q2  | 0.364    |
+| eval_mse_q3  | 0.373    |
+| eval_nll     | 33.6     |
+| eval_nll_q0  | 29.7     |
+| eval_nll_q1  | 34.3     |
+| eval_nll_q2  | 34.7     |
+| eval_nll_q3  | 35.7     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 5.43     |
+| loss_q0   | 5.42     |
+| loss_q1   | 5.43     |
+| loss_q2   | 5.43     |
+| loss_q3   | 5.42     |
+| mse       | 0.285    |
+| mse_q0    | 0.273    |
+| mse_q1    | 0.285    |
+| mse_q2    | 0.289    |
+| mse_q3    | 0.294    |
+| nll       | 29.3     |
+| nll_q0    | 26.4     |
+| nll_q1    | 29.6     |
+| nll_q2    | 30.4     |
+| nll_q3    | 31.1     |
+| samples   | 6.16e+05 |
+| step      | 300      |
+------------------------
+---------------------------
+| eval_loss    | 5.25     |
+| eval_loss_q0 | 5.24     |
+| eval_loss_q1 | 5.03     |
+| eval_loss_q2 | 5.36     |
+| eval_loss_q3 | 5.37     |
+| eval_mse     | 0.218    |
+| eval_mse_q0  | 0.205    |
+| eval_mse_q1  | 0.216    |
+| eval_mse_q2  | 0.221    |
+| eval_mse_q3  | 0.23     |
+| eval_nll     | 24.5     |
+| eval_nll_q0  | 21.4     |
+| eval_nll_q1  | 24.8     |
+| eval_nll_q2  | 25.2     |
+| eval_nll_q3  | 26.7     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 5.22     |
+| loss_q0   | 5.22     |
+| loss_q1   | 5.22     |
+| loss_q2   | 5.22     |
+| loss_q3   | 5.22     |
+| mse       | 0.173    |
+| mse_q0    | 0.163    |
+| mse_q1    | 0.173    |
+| mse_q2    | 0.176    |
+| mse_q3    | 0.18     |
+| nll       | 21.2     |
+| nll_q0    | 19.1     |
+| nll_q1    | 21.3     |
+| nll_q2    | 21.9     |
+| nll_q3    | 22.4     |
+| samples   | 8.21e+05 |
+| step      | 400      |
+------------------------
+---------------------------
+| eval_loss    | 5.16     |
+| eval_loss_q0 | 5.2      |
+| eval_loss_q1 | 5.23     |
+| eval_loss_q2 | 4.94     |
+| eval_loss_q3 | 5.29     |
+| eval_mse     | 0.135    |
+| eval_mse_q0  | 0.126    |
+| eval_mse_q1  | 0.137    |
+| eval_mse_q2  | 0.134    |
+| eval_mse_q3  | 0.143    |
+| eval_nll     | 18.1     |
+| eval_nll_q0  | 16.6     |
+| eval_nll_q1  | 18.3     |
+| eval_nll_q2  | 18.3     |
+| eval_nll_q3  | 19.2     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.5     |
+| loss      | 5.06     |
+| loss_q0   | 5.06     |
+| loss_q1   | 5.06     |
+| loss_q2   | 5.06     |
+| loss_q3   | 5.07     |
+| mse       | 0.107    |
+| mse_q0    | 0.0989   |
+| mse_q1    | 0.107    |
+| mse_q2    | 0.109    |
+| mse_q3    | 0.112    |
+| nll       | 14.2     |
+| nll_q0    | 12.8     |
+| nll_q1    | 14.3     |
+| nll_q2    | 14.7     |
+| nll_q3    | 15       |
+| samples   | 1.03e+06 |
+| step      | 500      |
+------------------------
+---------------------------
+| eval_loss    | 4.96     |
+| eval_loss_q0 | 4.74     |
+| eval_loss_q1 | 5.21     |
+| eval_loss_q2 | 4.92     |
+| eval_loss_q3 | 4.97     |
+| eval_mse     | 0.0778   |
+| eval_mse_q0  | 0.0701   |
+| eval_mse_q1  | 0.078    |
+| eval_mse_q2  | 0.0796   |
+| eval_mse_q3  | 0.0836   |
+| eval_nll     | 10.7     |
+| eval_nll_q0  | 9.42     |
+| eval_nll_q1  | 10.6     |
+| eval_nll_q2  | 11.1     |
+| eval_nll_q3  | 11.7     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.5     |
+| loss      | 4.93     |
+| loss_q0   | 4.94     |
+| loss_q1   | 4.93     |
+| loss_q2   | 4.94     |
+| loss_q3   | 4.93     |
+| mse       | 0.0666   |
+| mse_q0    | 0.0605   |
+| mse_q1    | 0.0664   |
+| mse_q2    | 0.0684   |
+| mse_q3    | 0.0709   |
+| nll       | 9.76     |
+| nll_q0    | 8.61     |
+| nll_q1    | 9.79     |
+| nll_q2    | 10.2     |
+| nll_q3    | 10.5     |
+| samples   | 1.23e+06 |
+| step      | 600      |
+------------------------
+---------------------------
+| eval_loss    | 4.85     |
+| eval_loss_q0 | 4.94     |
+| eval_loss_q1 | 5.01     |
+| eval_loss_q2 | 4.69     |
+| eval_loss_q3 | 4.76     |
+| eval_mse     | 0.0608   |
+| eval_mse_q0  | 0.0566   |
+| eval_mse_q1  | 0.0622   |
+| eval_mse_q2  | 0.0599   |
+| eval_mse_q3  | 0.0643   |
+| eval_nll     | 9.4      |
+| eval_nll_q0  | 8.5      |
+| eval_nll_q1  | 9.63     |
+| eval_nll_q2  | 9.4      |
+| eval_nll_q3  | 10.1     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 4.85     |
+| loss_q0   | 4.84     |
+| loss_q1   | 4.84     |
+| loss_q2   | 4.85     |
+| loss_q3   | 4.85     |
+| mse       | 0.0597   |
+| mse_q0    | 0.0541   |
+| mse_q1    | 0.0598   |
+| mse_q2    | 0.0614   |
+| mse_q3    | 0.0637   |
+| nll       | 9.28     |
+| nll_q0    | 8.16     |
+| nll_q1    | 9.32     |
+| nll_q2    | 9.65     |
+| nll_q3    | 9.98     |
+| samples   | 1.44e+06 |
+| step      | 700      |
+------------------------
+---------------------------
+| eval_loss    | 4.85     |
+| eval_loss_q0 | 4.9      |
+| eval_loss_q1 | 4.81     |
+| eval_loss_q2 | 4.86     |
+| eval_loss_q3 | 4.85     |
+| eval_mse     | 0.0593   |
+| eval_mse_q0  | 0.0538   |
+| eval_mse_q1  | 0.0596   |
+| eval_mse_q2  | 0.0613   |
+| eval_mse_q3  | 0.0622   |
+| eval_nll     | 9.24     |
+| eval_nll_q0  | 8.19     |
+| eval_nll_q1  | 9.34     |
+| eval_nll_q2  | 9.64     |
+| eval_nll_q3  | 9.75     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 4.77     |
+| loss_q0   | 4.77     |
+| loss_q1   | 4.76     |
+| loss_q2   | 4.77     |
+| loss_q3   | 4.77     |
+| mse       | 0.0588   |
+| mse_q0    | 0.0532   |
+| mse_q1    | 0.0588   |
+| mse_q2    | 0.0605   |
+| mse_q3    | 0.0626   |
+| nll       | 9.14     |
+| nll_q0    | 8        |
+| nll_q1    | 9.17     |
+| nll_q2    | 9.53     |
+| nll_q3    | 9.88     |
+| samples   | 1.64e+06 |
+| step      | 800      |
+------------------------
+---------------------------
+| eval_loss    | 4.77     |
+| eval_loss_q0 | 4.77     |
+| eval_loss_q1 | 4.63     |
+| eval_loss_q2 | 4.83     |
+| eval_loss_q3 | 4.84     |
+| eval_mse     | 0.0585   |
+| eval_mse_q0  | 0.0529   |
+| eval_mse_q1  | 0.059    |
+| eval_mse_q2  | 0.0607   |
+| eval_mse_q3  | 0.0618   |
+| eval_nll     | 8.92     |
+| eval_nll_q0  | 7.83     |
+| eval_nll_q1  | 9.08     |
+| eval_nll_q2  | 9.39     |
+| eval_nll_q3  | 9.47     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 4.69     |
+| loss_q0   | 4.68     |
+| loss_q1   | 4.69     |
+| loss_q2   | 4.69     |
+| loss_q3   | 4.69     |
+| mse       | 0.0584   |
+| mse_q0    | 0.0529   |
+| mse_q1    | 0.0582   |
+| mse_q2    | 0.0601   |
+| mse_q3    | 0.0623   |
+| nll       | 9.04     |
+| nll_q0    | 7.89     |
+| nll_q1    | 9.01     |
+| nll_q2    | 9.44     |
+| nll_q3    | 9.83     |
+| samples   | 1.85e+06 |
+| step      | 900      |
+------------------------
+---------------------------
+| eval_loss    | 4.63     |
+| eval_loss_q0 | 4.74     |
+| eval_loss_q1 | 4.62     |
+| eval_loss_q2 | 4.57     |
+| eval_loss_q3 | 4.57     |
+| eval_mse     | 0.0583   |
+| eval_mse_q0  | 0.0536   |
+| eval_mse_q1  | 0.0575   |
+| eval_mse_q2  | 0.0601   |
+| eval_mse_q3  | 0.0623   |
+| eval_nll     | 8.99     |
+| eval_nll_q0  | 7.86     |
+| eval_nll_q1  | 8.89     |
+| eval_nll_q2  | 9.47     |
+| eval_nll_q3  | 9.8      |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 4.62     |
+| loss_q0   | 4.62     |
+| loss_q1   | 4.62     |
+| loss_q2   | 4.62     |
+| loss_q3   | 4.61     |
+| mse       | 0.0582   |
+| mse_q0    | 0.0526   |
+| mse_q1    | 0.0582   |
+| mse_q2    | 0.0599   |
+| mse_q3    | 0.0621   |
+| nll       | 8.94     |
+| nll_q0    | 7.75     |
+| nll_q1    | 8.91     |
+| nll_q2    | 9.36     |
+| nll_q3    | 9.75     |
+| samples   | 2.05e+06 |
+| step      | 1e+03    |
+------------------------
+---------------------------
+| eval_loss    | 4.52     |
+| eval_loss_q0 | 4.54     |
+| eval_loss_q1 | 4.37     |
+| eval_loss_q2 | 4.52     |
+| eval_loss_q3 | 4.62     |
+| eval_mse     | 0.0579   |
+| eval_mse_q0  | 0.0513   |
+| eval_mse_q1  | 0.0572   |
+| eval_mse_q2  | 0.0597   |
+| eval_mse_q3  | 0.0634   |
+| eval_nll     | 8.86     |
+| eval_nll_q0  | 7.5      |
+| eval_nll_q1  | 8.77     |
+| eval_nll_q2  | 9.3      |
+| eval_nll_q3  | 9.88     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 4.55     |
+| loss_q0   | 4.54     |
+| loss_q1   | 4.55     |
+| loss_q2   | 4.55     |
+| loss_q3   | 4.55     |
+| mse       | 0.058    |
+| mse_q0    | 0.0525   |
+| mse_q1    | 0.0581   |
+| mse_q2    | 0.0596   |
+| mse_q3    | 0.062    |
+| nll       | 8.84     |
+| nll_q0    | 7.63     |
+| nll_q1    | 8.8      |
+| nll_q2    | 9.23     |
+| nll_q3    | 9.68     |
+| samples   | 2.25e+06 |
+| step      | 1.1e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.5      |
+| eval_loss_q0 | 4.79     |
+| eval_loss_q1 | 4.56     |
+| eval_loss_q2 | 4.26     |
+| eval_loss_q3 | 4.41     |
+| eval_mse     | 0.058    |
+| eval_mse_q0  | 0.0529   |
+| eval_mse_q1  | 0.0576   |
+| eval_mse_q2  | 0.059    |
+| eval_mse_q3  | 0.0623   |
+| eval_nll     | 8.79     |
+| eval_nll_q0  | 7.6      |
+| eval_nll_q1  | 8.62     |
+| eval_nll_q2  | 9.17     |
+| eval_nll_q3  | 9.72     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 4.48     |
+| loss_q0   | 4.48     |
+| loss_q1   | 4.47     |
+| loss_q2   | 4.48     |
+| loss_q3   | 4.48     |
+| mse       | 0.0579   |
+| mse_q0    | 0.0522   |
+| mse_q1    | 0.058    |
+| mse_q2    | 0.0597   |
+| mse_q3    | 0.062    |
+| nll       | 8.74     |
+| nll_q0    | 7.49     |
+| nll_q1    | 8.69     |
+| nll_q2    | 9.16     |
+| nll_q3    | 9.62     |
+| samples   | 2.46e+06 |
+| step      | 1.2e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.42     |
+| eval_loss_q0 | 4.37     |
+| eval_loss_q1 | 4.62     |
+| eval_loss_q2 | 4.5      |
+| eval_loss_q3 | 4.21     |
+| eval_mse     | 0.0578   |
+| eval_mse_q0  | 0.0502   |
+| eval_mse_q1  | 0.0604   |
+| eval_mse_q2  | 0.0601   |
+| eval_mse_q3  | 0.0611   |
+| eval_nll     | 8.75     |
+| eval_nll_q0  | 7.21     |
+| eval_nll_q1  | 9.01     |
+| eval_nll_q2  | 9.18     |
+| eval_nll_q3  | 9.69     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 4.42     |
+| loss_q0   | 4.42     |
+| loss_q1   | 4.42     |
+| loss_q2   | 4.41     |
+| loss_q3   | 4.42     |
+| mse       | 0.0579   |
+| mse_q0    | 0.0522   |
+| mse_q1    | 0.0578   |
+| mse_q2    | 0.0598   |
+| mse_q3    | 0.0617   |
+| nll       | 8.64     |
+| nll_q0    | 7.39     |
+| nll_q1    | 8.55     |
+| nll_q2    | 9.12     |
+| nll_q3    | 9.51     |
+| samples   | 2.66e+06 |
+| step      | 1.3e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.4      |
+| eval_loss_q0 | 4.4      |
+| eval_loss_q1 | 4.41     |
+| eval_loss_q2 | 4.49     |
+| eval_loss_q3 | 4.31     |
+| eval_mse     | 0.0578   |
+| eval_mse_q0  | 0.0514   |
+| eval_mse_q1  | 0.0575   |
+| eval_mse_q2  | 0.0604   |
+| eval_mse_q3  | 0.0615   |
+| eval_nll     | 8.63     |
+| eval_nll_q0  | 7.27     |
+| eval_nll_q1  | 8.44     |
+| eval_nll_q2  | 9.18     |
+| eval_nll_q3  | 9.55     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 4.36     |
+| loss_q0   | 4.36     |
+| loss_q1   | 4.36     |
+| loss_q2   | 4.36     |
+| loss_q3   | 4.36     |
+| mse       | 0.0578   |
+| mse_q0    | 0.0522   |
+| mse_q1    | 0.0579   |
+| mse_q2    | 0.0594   |
+| mse_q3    | 0.0617   |
+| nll       | 8.55     |
+| nll_q0    | 7.3      |
+| nll_q1    | 8.49     |
+| nll_q2    | 8.96     |
+| nll_q3    | 9.44     |
+| samples   | 2.87e+06 |
+| step      | 1.4e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.24     |
+| eval_loss_q0 | 4.31     |
+| eval_loss_q1 | 4.29     |
+| eval_loss_q2 | 4.11     |
+| eval_loss_q3 | 4.26     |
+| eval_mse     | 0.0575   |
+| eval_mse_q0  | 0.0514   |
+| eval_mse_q1  | 0.058    |
+| eval_mse_q2  | 0.0595   |
+| eval_mse_q3  | 0.0617   |
+| eval_nll     | 8.52     |
+| eval_nll_q0  | 7.15     |
+| eval_nll_q1  | 8.48     |
+| eval_nll_q2  | 9.12     |
+| eval_nll_q3  | 9.43     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 4.31     |
+| loss_q0   | 4.31     |
+| loss_q1   | 4.3      |
+| loss_q2   | 4.3      |
+| loss_q3   | 4.3      |
+| mse       | 0.0578   |
+| mse_q0    | 0.052    |
+| mse_q1    | 0.0578   |
+| mse_q2    | 0.0596   |
+| mse_q3    | 0.0617   |
+| nll       | 8.47     |
+| nll_q0    | 7.19     |
+| nll_q1    | 8.39     |
+| nll_q2    | 8.92     |
+| nll_q3    | 9.38     |
+| samples   | 3.07e+06 |
+| step      | 1.5e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.27     |
+| eval_loss_q0 | 4.44     |
+| eval_loss_q1 | 4.27     |
+| eval_loss_q2 | 4.16     |
+| eval_loss_q3 | 4.23     |
+| eval_mse     | 0.0579   |
+| eval_mse_q0  | 0.053    |
+| eval_mse_q1  | 0.0577   |
+| eval_mse_q2  | 0.0591   |
+| eval_mse_q3  | 0.0613   |
+| eval_nll     | 8.42     |
+| eval_nll_q0  | 7.3      |
+| eval_nll_q1  | 8.29     |
+| eval_nll_q2  | 8.77     |
+| eval_nll_q3  | 9.25     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 4.25     |
+| loss_q0   | 4.25     |
+| loss_q1   | 4.25     |
+| loss_q2   | 4.25     |
+| loss_q3   | 4.25     |
+| mse       | 0.0577   |
+| mse_q0    | 0.052    |
+| mse_q1    | 0.0577   |
+| mse_q2    | 0.0596   |
+| mse_q3    | 0.0615   |
+| nll       | 8.38     |
+| nll_q0    | 7.11     |
+| nll_q1    | 8.29     |
+| nll_q2    | 8.85     |
+| nll_q3    | 9.28     |
+| samples   | 3.28e+06 |
+| step      | 1.6e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.19     |
+| eval_loss_q0 | 4.2      |
+| eval_loss_q1 | 4.1      |
+| eval_loss_q2 | 4.25     |
+| eval_loss_q3 | 4.23     |
+| eval_mse     | 0.0574   |
+| eval_mse_q0  | 0.0518   |
+| eval_mse_q1  | 0.0559   |
+| eval_mse_q2  | 0.0604   |
+| eval_mse_q3  | 0.062    |
+| eval_nll     | 8.35     |
+| eval_nll_q0  | 7.06     |
+| eval_nll_q1  | 8.04     |
+| eval_nll_q2  | 8.98     |
+| eval_nll_q3  | 9.41     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 4.2      |
+| loss_q0   | 4.2      |
+| loss_q1   | 4.2      |
+| loss_q2   | 4.2      |
+| loss_q3   | 4.2      |
+| mse       | 0.0576   |
+| mse_q0    | 0.0521   |
+| mse_q1    | 0.0577   |
+| mse_q2    | 0.0594   |
+| mse_q3    | 0.0615   |
+| nll       | 8.3      |
+| nll_q0    | 7.02     |
+| nll_q1    | 8.21     |
+| nll_q2    | 8.76     |
+| nll_q3    | 9.23     |
+| samples   | 3.48e+06 |
+| step      | 1.7e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.15     |
+| eval_loss_q0 | 4.01     |
+| eval_loss_q1 | 4.19     |
+| eval_loss_q2 | 4.11     |
+| eval_loss_q3 | 4.3      |
+| eval_mse     | 0.0575   |
+| eval_mse_q0  | 0.0512   |
+| eval_mse_q1  | 0.0576   |
+| eval_mse_q2  | 0.0588   |
+| eval_mse_q3  | 0.0626   |
+| eval_nll     | 8.17     |
+| eval_nll_q0  | 6.71     |
+| eval_nll_q1  | 8.12     |
+| eval_nll_q2  | 8.58     |
+| eval_nll_q3  | 9.29     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 4.16     |
+| loss_q0   | 4.16     |
+| loss_q1   | 4.16     |
+| loss_q2   | 4.15     |
+| loss_q3   | 4.16     |
+| mse       | 0.0576   |
+| mse_q0    | 0.0518   |
+| mse_q1    | 0.0577   |
+| mse_q2    | 0.0595   |
+| mse_q3    | 0.0614   |
+| nll       | 8.24     |
+| nll_q0    | 6.93     |
+| nll_q1    | 8.14     |
+| nll_q2    | 8.72     |
+| nll_q3    | 9.16     |
+| samples   | 3.69e+06 |
+| step      | 1.8e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.23     |
+| eval_loss_q0 | 4.34     |
+| eval_loss_q1 | 4.14     |
+| eval_loss_q2 | 4.12     |
+| eval_loss_q3 | 4.32     |
+| eval_mse     | 0.0579   |
+| eval_mse_q0  | 0.0529   |
+| eval_mse_q1  | 0.0566   |
+| eval_mse_q2  | 0.0595   |
+| eval_mse_q3  | 0.0623   |
+| eval_nll     | 8.23     |
+| eval_nll_q0  | 6.92     |
+| eval_nll_q1  | 7.96     |
+| eval_nll_q2  | 8.74     |
+| eval_nll_q3  | 9.19     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 4.12     |
+| loss_q0   | 4.12     |
+| loss_q1   | 4.12     |
+| loss_q2   | 4.12     |
+| loss_q3   | 4.12     |
+| mse       | 0.0576   |
+| mse_q0    | 0.0519   |
+| mse_q1    | 0.0576   |
+| mse_q2    | 0.0594   |
+| mse_q3    | 0.0613   |
+| nll       | 8.18     |
+| nll_q0    | 6.89     |
+| nll_q1    | 8.08     |
+| nll_q2    | 8.66     |
+| nll_q3    | 9.1      |
+| samples   | 3.89e+06 |
+| step      | 1.9e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.06     |
+| eval_loss_q0 | 4.07     |
+| eval_loss_q1 | 4.18     |
+| eval_loss_q2 | 3.95     |
+| eval_loss_q3 | 4.05     |
+| eval_mse     | 0.0575   |
+| eval_mse_q0  | 0.0507   |
+| eval_mse_q1  | 0.0586   |
+| eval_mse_q2  | 0.0597   |
+| eval_mse_q3  | 0.0609   |
+| eval_nll     | 8.26     |
+| eval_nll_q0  | 6.8      |
+| eval_nll_q1  | 8.29     |
+| eval_nll_q2  | 8.89     |
+| eval_nll_q3  | 9.13     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 4.08     |
+| loss_q0   | 4.08     |
+| loss_q1   | 4.09     |
+| loss_q2   | 4.08     |
+| loss_q3   | 4.08     |
+| mse       | 0.0575   |
+| mse_q0    | 0.0519   |
+| mse_q1    | 0.0574   |
+| mse_q2    | 0.0594   |
+| mse_q3    | 0.0614   |
+| nll       | 8.13     |
+| nll_q0    | 6.82     |
+| nll_q1    | 7.98     |
+| nll_q2    | 8.62     |
+| nll_q3    | 9.1      |
+| samples   | 4.1e+06  |
+| step      | 2e+03    |
+------------------------
+---------------------------
+| eval_loss    | 4.05     |
+| eval_loss_q0 | 4.08     |
+| eval_loss_q1 | 3.99     |
+| eval_loss_q2 | 4.05     |
+| eval_loss_q3 | 4.06     |
+| eval_mse     | 0.0573   |
+| eval_mse_q0  | 0.0525   |
+| eval_mse_q1  | 0.0571   |
+| eval_mse_q2  | 0.058    |
+| eval_mse_q3  | 0.0614   |
+| eval_nll     | 8.14     |
+| eval_nll_q0  | 6.93     |
+| eval_nll_q1  | 7.98     |
+| eval_nll_q2  | 8.4      |
+| eval_nll_q3  | 9.15     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.3     |
+| loss      | 4.05     |
+| loss_q0   | 4.04     |
+| loss_q1   | 4.05     |
+| loss_q2   | 4.05     |
+| loss_q3   | 4.05     |
+| mse       | 0.0575   |
+| mse_q0    | 0.0519   |
+| mse_q1    | 0.0575   |
+| mse_q2    | 0.0592   |
+| mse_q3    | 0.0613   |
+| nll       | 8.08     |
+| nll_q0    | 6.78     |
+| nll_q1    | 7.94     |
+| nll_q2    | 8.53     |
+| nll_q3    | 9.05     |
+| samples   | 4.3e+06  |
+| step      | 2.1e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.04     |
+| eval_loss_q0 | 4.03     |
+| eval_loss_q1 | 4        |
+| eval_loss_q2 | 4.12     |
+| eval_loss_q3 | 4.01     |
+| eval_mse     | 0.0573   |
+| eval_mse_q0  | 0.0515   |
+| eval_mse_q1  | 0.0581   |
+| eval_mse_q2  | 0.0593   |
+| eval_mse_q3  | 0.0604   |
+| eval_nll     | 8.04     |
+| eval_nll_q0  | 6.75     |
+| eval_nll_q1  | 8.12     |
+| eval_nll_q2  | 8.5      |
+| eval_nll_q3  | 8.83     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 4.01     |
+| loss_q0   | 4.01     |
+| loss_q1   | 4.01     |
+| loss_q2   | 4.02     |
+| loss_q3   | 4.01     |
+| mse       | 0.0574   |
+| mse_q0    | 0.0517   |
+| mse_q1    | 0.0575   |
+| mse_q2    | 0.0592   |
+| mse_q3    | 0.0612   |
+| nll       | 8.02     |
+| nll_q0    | 6.69     |
+| nll_q1    | 7.91     |
+| nll_q2    | 8.47     |
+| nll_q3    | 9        |
+| samples   | 4.51e+06 |
+| step      | 2.2e+03  |
+------------------------
+---------------------------
+| eval_loss    | 4.07     |
+| eval_loss_q0 | 3.95     |
+| eval_loss_q1 | 4.06     |
+| eval_loss_q2 | 4.04     |
+| eval_loss_q3 | 4.22     |
+| eval_mse     | 0.0576   |
+| eval_mse_q0  | 0.0517   |
+| eval_mse_q1  | 0.0577   |
+| eval_mse_q2  | 0.0593   |
+| eval_mse_q3  | 0.0614   |
+| eval_nll     | 8        |
+| eval_nll_q0  | 6.69     |
+| eval_nll_q1  | 7.9      |
+| eval_nll_q2  | 8.54     |
+| eval_nll_q3  | 8.82     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 3.99     |
+| loss_q0   | 3.99     |
+| loss_q1   | 3.98     |
+| loss_q2   | 3.99     |
+| loss_q3   | 3.99     |
+| mse       | 0.0574   |
+| mse_q0    | 0.0517   |
+| mse_q1    | 0.0574   |
+| mse_q2    | 0.0592   |
+| mse_q3    | 0.0613   |
+| nll       | 7.98     |
+| nll_q0    | 6.66     |
+| nll_q1    | 7.84     |
+| nll_q2    | 8.45     |
+| nll_q3    | 8.98     |
+| samples   | 4.71e+06 |
+| step      | 2.3e+03  |
+------------------------
+---------------------------
+| eval_loss    | 3.88     |
+| eval_loss_q0 | 3.8      |
+| eval_loss_q1 | 3.89     |
+| eval_loss_q2 | 3.96     |
+| eval_loss_q3 | 3.85     |
+| eval_mse     | 0.0574   |
+| eval_mse_q0  | 0.0512   |
+| eval_mse_q1  | 0.0578   |
+| eval_mse_q2  | 0.0592   |
+| eval_mse_q3  | 0.0612   |
+| eval_nll     | 8.01     |
+| eval_nll_q0  | 6.64     |
+| eval_nll_q1  | 7.93     |
+| eval_nll_q2  | 8.41     |
+| eval_nll_q3  | 9.01     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 3.96     |
+| loss_q0   | 3.97     |
+| loss_q1   | 3.96     |
+| loss_q2   | 3.96     |
+| loss_q3   | 3.96     |
+| mse       | 0.0574   |
+| mse_q0    | 0.0516   |
+| mse_q1    | 0.0573   |
+| mse_q2    | 0.0593   |
+| mse_q3    | 0.0613   |
+| nll       | 7.95     |
+| nll_q0    | 6.61     |
+| nll_q1    | 7.78     |
+| nll_q2    | 8.44     |
+| nll_q3    | 8.95     |
+| samples   | 4.92e+06 |
+| step      | 2.4e+03  |
+------------------------
+---------------------------
+| eval_loss    | 3.96     |
+| eval_loss_q0 | 4.04     |
+| eval_loss_q1 | 3.85     |
+| eval_loss_q2 | 4.04     |
+| eval_loss_q3 | 3.91     |
+| eval_mse     | 0.0572   |
+| eval_mse_q0  | 0.0525   |
+| eval_mse_q1  | 0.0564   |
+| eval_mse_q2  | 0.0599   |
+| eval_mse_q3  | 0.06     |
+| eval_nll     | 7.87     |
+| eval_nll_q0  | 6.63     |
+| eval_nll_q1  | 7.67     |
+| eval_nll_q2  | 8.44     |
+| eval_nll_q3  | 8.7      |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 3.94     |
+| loss_q0   | 3.94     |
+| loss_q1   | 3.94     |
+| loss_q2   | 3.94     |
+| loss_q3   | 3.95     |
+| mse       | 0.0573   |
+| mse_q0    | 0.0516   |
+| mse_q1    | 0.0573   |
+| mse_q2    | 0.0592   |
+| mse_q3    | 0.0612   |
+| nll       | 7.9      |
+| nll_q0    | 6.58     |
+| nll_q1    | 7.76     |
+| nll_q2    | 8.38     |
+| nll_q3    | 8.89     |
+| samples   | 5.12e+06 |
+| step      | 2.5e+03  |
+------------------------
+---------------------------
+| eval_loss    | 3.92     |
+| eval_loss_q0 | 3.83     |
+| eval_loss_q1 | 3.97     |
+| eval_loss_q2 | 3.95     |
+| eval_loss_q3 | 3.93     |
+| eval_mse     | 0.0574   |
+| eval_mse_q0  | 0.0513   |
+| eval_mse_q1  | 0.0579   |
+| eval_mse_q2  | 0.0588   |
+| eval_mse_q3  | 0.0614   |
+| eval_nll     | 7.9      |
+| eval_nll_q0  | 6.57     |
+| eval_nll_q1  | 7.82     |
+| eval_nll_q2  | 8.3      |
+| eval_nll_q3  | 8.88     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 3.92     |
+| loss_q0   | 3.92     |
+| loss_q1   | 3.92     |
+| loss_q2   | 3.92     |
+| loss_q3   | 3.93     |
+| mse       | 0.0573   |
+| mse_q0    | 0.0515   |
+| mse_q1    | 0.0574   |
+| mse_q2    | 0.0592   |
+| mse_q3    | 0.0612   |
+| nll       | 7.88     |
+| nll_q0    | 6.54     |
+| nll_q1    | 7.74     |
+| nll_q2    | 8.36     |
+| nll_q3    | 8.87     |
+| samples   | 5.33e+06 |
+| step      | 2.6e+03  |
+------------------------
+---------------------------
+| eval_loss    | 3.91     |
+| eval_loss_q0 | 3.91     |
+| eval_loss_q1 | 3.88     |
+| eval_loss_q2 | 3.87     |
+| eval_loss_q3 | 3.97     |
+| eval_mse     | 0.0572   |
+| eval_mse_q0  | 0.0522   |
+| eval_mse_q1  | 0.0569   |
+| eval_mse_q2  | 0.0586   |
+| eval_mse_q3  | 0.0612   |
+| eval_nll     | 7.8      |
+| eval_nll_q0  | 6.61     |
+| eval_nll_q1  | 7.59     |
+| eval_nll_q2  | 8.23     |
+| eval_nll_q3  | 8.77     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 3.91     |
+| loss_q0   | 3.91     |
+| loss_q1   | 3.91     |
+| loss_q2   | 3.91     |
+| loss_q3   | 3.91     |
+| mse       | 0.0573   |
+| mse_q0    | 0.0515   |
+| mse_q1    | 0.0574   |
+| mse_q2    | 0.0592   |
+| mse_q3    | 0.0612   |
+| nll       | 7.86     |
+| nll_q0    | 6.52     |
+| nll_q1    | 7.71     |
+| nll_q2    | 8.33     |
+| nll_q3    | 8.87     |
+| samples   | 5.53e+06 |
+| step      | 2.7e+03  |
+------------------------
+---------------------------
+| eval_loss    | 3.95     |
+| eval_loss_q0 | 3.77     |
+| eval_loss_q1 | 4.03     |
+| eval_loss_q2 | 4.01     |
+| eval_loss_q3 | 3.97     |
+| eval_mse     | 0.0577   |
+| eval_mse_q0  | 0.0504   |
+| eval_mse_q1  | 0.0581   |
+| eval_mse_q2  | 0.0601   |
+| eval_mse_q3  | 0.062    |
+| eval_nll     | 7.9      |
+| eval_nll_q0  | 6.41     |
+| eval_nll_q1  | 7.74     |
+| eval_nll_q2  | 8.4      |
+| eval_nll_q3  | 8.99     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 3.9      |
+| loss_q0   | 3.9      |
+| loss_q1   | 3.9      |
+| loss_q2   | 3.9      |
+| loss_q3   | 3.9      |
+| mse       | 0.0573   |
+| mse_q0    | 0.0515   |
+| mse_q1    | 0.0573   |
+| mse_q2    | 0.0592   |
+| mse_q3    | 0.0613   |
+| nll       | 7.85     |
+| nll_q0    | 6.5      |
+| nll_q1    | 7.69     |
+| nll_q2    | 8.32     |
+| nll_q3    | 8.87     |
+| samples   | 5.74e+06 |
+| step      | 2.8e+03  |
+------------------------
+---------------------------
+| eval_loss    | 3.86     |
+| eval_loss_q0 | 3.73     |
+| eval_loss_q1 | 4.01     |
+| eval_loss_q2 | 3.9      |
+| eval_loss_q3 | 3.8      |
+| eval_mse     | 0.0573   |
+| eval_mse_q0  | 0.0505   |
+| eval_mse_q1  | 0.0599   |
+| eval_mse_q2  | 0.0585   |
+| eval_mse_q3  | 0.0607   |
+| eval_nll     | 7.85     |
+| eval_nll_q0  | 6.39     |
+| eval_nll_q1  | 8.05     |
+| eval_nll_q2  | 8.17     |
+| eval_nll_q3  | 8.84     |
+---------------------------
+saving model 0.9999...
+------------------------
+| grad_norm | 16.2     |
+| loss      | 3.89     |
+| loss_q0   | 3.89     |
+| loss_q1   | 3.89     |
+| loss_q2   | 3.89     |
+| loss_q3   | 3.89     |
+| mse       | 0.0573   |
+| mse_q0    | 0.0515   |
+| mse_q1    | 0.0573   |
+| mse_q2    | 0.0592   |
+| mse_q3    | 0.061    |
+| nll       | 7.83     |
+| nll_q0    | 6.49     |
+| nll_q1    | 7.68     |
+| nll_q2    | 8.33     |
+| nll_q3    | 8.81     |
+| samples   | 5.94e+06 |
+| step      | 2.9e+03  |
+------------------------
+---------------------------
+| eval_loss    | 3.9      |
+| eval_loss_q0 | 3.91     |
+| eval_loss_q1 | 3.8      |
+| eval_loss_q2 | 4        |
+| eval_loss_q3 | 3.91     |
+| eval_mse     | 0.0572   |
+| eval_mse_q0  | 0.0527   |
+| eval_mse_q1  | 0.0572   |
+| eval_mse_q2  | 0.059    |
+| eval_mse_q3  | 0.0599   |
+| eval_nll     | 7.78     |
+| eval_nll_q0  | 6.63     |
+| eval_nll_q1  | 7.75     |
+| eval_nll_q2  | 8.18     |
+| eval_nll_q3  | 8.54     |
+---------------------------
+saving model 0.9999...
+saving model 0.9999...
